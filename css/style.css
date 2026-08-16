@@ -87,35 +87,22 @@ section {
 }
 
 .hero-title-damaged {
+  position: relative;
+  display: inline-block;
+  color: var(--text);
   text-shadow:
-    1px 0 0 rgba(255,255,255,0.05),
-    -1px 0 0 rgba(0,0,0,0.25);
+    1px 0 0 rgba(255,255,255,0.04),
+    -1px 0 0 rgba(0,0,0,0.26);
 }
 
-.hero-title-damaged::after {
-  content: "";
-  position: absolute;
-  inset: -0.12em -0.08em;
-  pointer-events: none;
-  opacity: 0.22;
-  background:
-    linear-gradient(112deg,
-      transparent 0%,
-      transparent 18%,
-      rgba(0,0,0,0.9) 18.8%,
-      transparent 19.6%,
-      transparent 34%,
-      rgba(0,0,0,0.7) 34.8%,
-      transparent 35.5%,
-      transparent 52%,
-      rgba(255,255,255,0.22) 52.8%,
-      transparent 53.6%,
-      transparent 69%,
-      rgba(0,0,0,0.85) 69.8%,
-      transparent 70.8%,
-      transparent 100%);
-  mix-blend-mode: multiply;
+.hero-line {
+  position: relative;
+  display: block;
 }
+
+.hero-line + .hero-line {
+  margin-top: -0.04em;
+  }
 
 .core-line {
   font-size: clamp(2.2rem, 11vw, 7rem);
