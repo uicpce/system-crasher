@@ -127,6 +127,32 @@ section {
   );
     }
 
+.hero-title-damaged::after {
+  content: "";
+  position: absolute;
+  inset: -0.08em -0.06em;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.32;
+  background:
+    linear-gradient(111deg,
+      transparent 0%,
+      transparent 16%,
+      rgba(0,0,0,0.92) 16.7%,
+      transparent 17.4%,
+      transparent 33%,
+      rgba(0,0,0,0.85) 33.8%,
+      transparent 34.6%,
+      transparent 52%,
+      rgba(255,255,255,0.18) 52.8%,
+      transparent 53.6%,
+      transparent 70%,
+      rgba(0,0,0,0.88) 70.8%,
+      transparent 71.6%,
+      transparent 100%);
+  mix-blend-mode: multiply;
+}
+
 .core-line {
   font-size: clamp(2.2rem, 11vw, 7rem);
   line-height: 0.95;
