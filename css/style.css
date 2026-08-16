@@ -166,6 +166,333 @@ section {
   height: 0.08em;
   left: 1.75em;
   top: 0.62em;
+:root {
+  --bg: #0b0b0b;
+  --paper: #f1eee6;
+  --text: #f7f7f2;
+  --muted: #b6b6b0;
+  --signal: #f2d400;
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-gear {
+  position: absolute;
+  left: -28vw;
+  bottom: 8vh;
+  width: 88vw;
+  max-width: 520px;
+  opacity: 0.18;
+  transform: rotate(-28deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-gear img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================================
+   SYSTEM CRASHER WORDMARK
+   ========================================================= */
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(3rem, 15vw, 8rem);
+  line-height: 0.86;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  position: relative;
+  z-index: 2;
+  transform: rotate(-4deg);
+  transform-origin: left center;
+}
+
+.hero-title-damaged {
+  position: relative;
+  display: inline-block;
+  color: var(--text);
+  text-shadow:
+    1px 0 0 rgba(255, 255, 255, 0.04),
+    -1px 0 0 rgba(0, 0, 0, 0.26);
+}
+
+.hero-line {
+  position: relative;
+  display: block;
+}
+
+.hero-line + .hero-line {
+  margin-top: -0.04em;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+}
+
+/* =========================================================
+   WET PAINT DRAGS
+   ========================================================= */
+
+.paint {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.9;
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.52) 0%,
+    rgba(255, 255, 255, 0.34) 25%,
+    rgba(255, 255, 255, 0.18) 60%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+}
+
+.paint::after {
+  content: "";
+  position: absolute;
+  right: 0.08em;
+  top: -0.01em;
+  width: 0.22em;
+  height: 0.22em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  filter: blur(1.4px);
+}
+
+/* SYSTEM */
+.paint-1 {
+  left: 3.45em;
+  top: 0.18em;
+  width: 1.7em;
+  height: 0.16em;
+  transform: rotate(8deg) skewX(18deg);
+}
+
+.paint-2 {
+  left: 4.95em;
+  top: 0.52em;
+  width: 1.25em;
+  height: 0.14em;
+  transform: rotate(6deg) skewX(16deg);
+}
+
+/* CRASHER */
+.paint-3 {
+  left: 2.8em;
+  top: 0.14em;
+  width: 1.5em;
+  height: 0.15em;
+  transform: rotate(7deg) skewX(18deg);
+}
+
+.paint-4 {
+  left: 5.15em;
+  top: 0.48em;
+  width: 1.55em;
+  height: 0.14em;
+  transform: rotate(5deg) skewX(14deg);
+}
+
+/* =========================================================
+   SCRATCH CUTS
+   ========================================================= */
+
+.hero-title-damaged::after {
+  content: "";
+  position: absolute;
+  inset: -0.08em -0.06em;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.32;
+  background:
+    linear-gradient(
+      111deg,
+      transparent 0%,
+      transparent 16%,
+      rgba(0, 0, 0, 0.92) 16.7%,
+      transparent 17.4%,
+      transparent 33%,
+      rgba(0, 0, 0, 0.85) 33.8%,
+      transparent 34.6%,
+      transparent 52%,
+      rgba(255, 255, 255, 0.18) 52.8%,
+      transparent 53.6%,
+      transparent 70%,
+      rgba(0, 0, 0, 0.88) 70.8%,
+      transparent 71.6%,
+      transparent 100%
+    );
+  mix-blend-mode: multiply;
+}
+
+.line-1::after,
+.line-2::after {
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.82);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.line-1::after {
+  width: 0.95em;
+  height: 0.08em;
+  left: 1.75em;
+  top: 0.62em;
+  transform: rotate(-58deg);
+}
+
+.line-2::after {
+  width: 1.05em;
+  height: 0.08em;
+  left: 2.55em;
+  top: 0.38em;
+  transform: rotate(-63deg);
+}
+
+/* =========================================================
+   CORE LINE
+   ========================================================= */
+
+.core-line {
+  font-size: clamp(2.2rem, 11vw, 7rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.core-line span {
+  display: block;
+}
+
+.core-line .noise {
+  color: var(--signal);
+}
+
+/* =========================================================
+   MANIFEST
+   ========================================================= */
+
+.manifest {
+  max-width: 42rem;
+  font-size: clamp(1.1rem, 4.6vw, 1.45rem);
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) {
+  .page {
+    width: min(100% - 4rem, var(--max-width));
+  }
+
+  section {
+    padding: 6rem 0;
+  }
+
+  .hero-gear {
+    left: -12vw;
+    bottom: 6vh;
+    width: 58vw;
+    max-width: 620px;
+    opacity: 0.2;
+    transform: rotate(-30deg);
+  }
+
+  .hero-title {
+    transform: rotate(-5deg);
+  }
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1024px) {
+  section {
+    padding: 8rem 0;
+  }
+
+  .hero-gear {
+    left: -4vw;
+    bottom: 2vh;
+    width: 42vw;
+    max-width: 700px;
+    opacity: 0.22;
+    transform: rotate(-31deg);
+  }
+
+  .hero-title {
+    max-width: 8ch;
+    transform: rotate(-6deg);
+  }
+
+  .manifest {
+    margin-left: 8%;
+  }
+}
   transform: rotate(-58deg);
 }
 
@@ -209,35 +536,6 @@ section {
     width: min(100% - 4rem, var(--max-width));
   }
 
-  section {
-    padding: 6rem 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-gear {
-    left: -12vw;
-    bottom: 6vh;
-    width: 58vw;
-    max-width: 620px;
-    opacity: 0.2;
-    transform: rotate(-30deg);
-  }
-
-  .hero-title {
-    transform: rotate(-5deg);
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-gear {
-    left: -4vw;
-    bottom: 2vh;
-    width: 42vw;
-    max-width: 700px;
-    opacity: 0.22;
-    transform: rotate(-31deg);
-  }
 
   .hero-title {
     max-width: 8ch;
