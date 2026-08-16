@@ -153,6 +153,30 @@ section {
   mix-blend-mode: multiply;
 }
 
+.line-1::after,
+.line-2::after {
+  content: "";
+  position: absolute;
+  background: rgba(0,0,0,0.82);
+  pointer-events: none;
+}
+
+.line-1::after {
+  width: 0.95em;
+  height: 0.08em;
+  left: 1.75em;
+  top: 0.62em;
+  transform: rotate(-58deg);
+}
+
+.line-2::after {
+  width: 1.05em;
+  height: 0.08em;
+  left: 2.55em;
+  top: 0.38em;
+  transform: rotate(-63deg);
+}
+
 .core-line {
   font-size: clamp(2.2rem, 11vw, 7rem);
   line-height: 0.95;
