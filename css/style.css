@@ -121,8 +121,7 @@ section {
 }
 
 /* =========================================================
-   WET PAINT DRAGS
-   neue robuste Version
+   WET PAINT / SCRATCH DRAGS
    ========================================================= */
 
 .paint {
@@ -131,81 +130,136 @@ section {
   pointer-events: none;
   display: block;
   opacity: 0.95;
-  filter: blur(1.4px);
   transform-origin: left center;
+
   background:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,0.58) 0%,
-      rgba(255,255,255,0.42) 18%,
-      rgba(255,255,255,0.24) 48%,
-      rgba(255,255,255,0.10) 72%,
-      rgba(255,255,255,0.00) 100%
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.00) 0%,
+      rgba(255,255,255,0.00) 12%,
+      rgba(255,255,255,0.58) 14%,
+      rgba(255,255,255,0.46) 19%,
+      rgba(255,255,255,0.22) 24%,
+      rgba(255,255,255,0.00) 31%
     );
+
   clip-path: polygon(
-    0 18%,
-    100% 0,
-    92% 34%,
-    100% 56%,
-    86% 72%,
-    100% 100%,
-    0 78%
+    0% 12%,
+    18% 3%,
+    29% 18%,
+    43% 7%,
+    58% 20%,
+    76% 4%,
+    100% 15%,
+
+    93% 26%,
+    100% 34%,
+    84% 43%,
+    98% 51%,
+    78% 59%,
+    100% 70%,
+
+    90% 78%,
+    100% 88%,
+    72% 94%,
+    57% 82%,
+    39% 96%,
+    25% 80%,
+    8% 92%,
+    0% 72%
   );
+
+  filter: blur(0.45px);
 }
 
-/* SYSTEM */
-.paint-1 {
-  left: 58%;
-  top: 18%;
-  width: 44%;
-  height: 14%;
-  transform: rotate(7deg) skewX(12deg);
-}
-
-.paint-2 {
-  left: 66%;
-  top: 57%;
-  width: 36%;
-  height: 11%;
-  transform: rotate(4deg) skewX(14deg);
-}
-
-/* CRASHER */
-.paint-3 {
-  left: 43%;
-  top: 16%;
-  width: 48%;
-  height: 13%;
-  transform: rotate(6deg) skewX(12deg);
-}
-
-.paint-4 {
-  left: 70%;
-  top: 55%;
-  width: 38%;
-  height: 10%;
-  transform: rotate(3deg) skewX(14deg);
-}
-
-/* unregelmäßige auslaufende Enden */
+/* kleine aggressive Kratzkante am Ende */
 .paint::after {
   content: "";
   position: absolute;
-  right: 2%;
-  top: 20%;
-  width: 18%;
-  height: 60%;
+  right: -3%;
+  top: 15%;
+  width: 35%;
+  height: 70%;
+
   background:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,0.22),
-      rgba(255,255,255,0.00)
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.30) 0px,
+      rgba(255,255,255,0.30) 2px,
+      transparent 2px,
+      transparent 7px
     );
-  transform: skewX(18deg);
-  filter: blur(1px);
+
+  clip-path: polygon(
+    0% 12%,
+    100% 0%,
+    72% 18%,
+    100% 29%,
+    63% 41%,
+    100% 54%,
+    69% 65%,
+    100% 78%,
+    52% 92%,
+    0% 79%
+  );
+
+  opacity: 0.68;
+  filter: blur(0.25px);
 }
 
-/* =========================================================
+/* SYSTEM – obere Schleppspur */
+.paint-1 {
+  left: 54%;
+  top: 17%;
+  width: 58%;
+  height: 22%;
+
+  transform:
+    rotate(4deg)
+    skewX(19deg);
+}
+
+/* SYSTEM – untere, längere Verletzung */
+.paint-2 {
+  left: 47%;
+  top: 55%;
+  width: 66%;
+  height: 19%;
+
+  transform:
+    rotate(-1deg)
+    skewX(23deg);
+
+  opacity: 0.78;
+}
+
+/* CRASHER – obere Schleppspur */
+.paint-3 {
+  left: 39%;
+  top: 13%;
+  width: 67%;
+  height: 21%;
+
+  transform:
+    rotate(3deg)
+    skewX(20deg);
+}
+
+/* CRASHER – tiefer Kratz-/Schmierzug */
+.paint-4 {
+  left: 53%;
+  top: 56%;
+  width: 63%;
+  height: 18%;
+
+  transform:
+    rotate(-2deg)
+    skewX(25deg);
+
+  opacity: 0.82;
+}
+
+/ =========================================================
    SCRATCH CUTS
    ========================================================= */
 
