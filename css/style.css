@@ -104,6 +104,29 @@ section {
   margin-top: -0.04em;
   }
 
+.hero-line::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: rgba(255,255,255,0.22);
+  transform: translate(0.09em, 0.03em) skewX(8deg);
+  filter: blur(1.2px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: -1;
+  clip-path: polygon(
+    58% 0%,
+    100% 0%,
+    100% 100%,
+    68% 100%,
+    60% 78%,
+    74% 62%,
+    63% 44%,
+    73% 28%,
+    60% 14%
+  );
+    }
+
 .core-line {
   font-size: clamp(2.2rem, 11vw, 7rem);
   line-height: 0.95;
