@@ -44,9 +44,34 @@ section {
 }
 
 .hero {
+  position: relative;
   min-height: 100svh;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-gear {
+  position: absolute;
+  left: -28vw;
+  bottom: 8vh;
+  width: 88vw;
+  max-width: 520px;
+  opacity: 0.18;
+  transform: rotate(-28deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-gear img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .hero-title {
@@ -55,6 +80,41 @@ section {
   line-height: 0.86;
   text-transform: uppercase;
   letter-spacing: -0.05em;
+  position: relative;
+  z-index: 2;
+  transform: rotate(-4deg);
+  transform-origin: left center;
+}
+
+.hero-title-damaged {
+  text-shadow:
+    1px 0 0 rgba(255,255,255,0.05),
+    -1px 0 0 rgba(0,0,0,0.25);
+}
+
+.hero-title-damaged::after {
+  content: "";
+  position: absolute;
+  inset: -0.12em -0.08em;
+  pointer-events: none;
+  opacity: 0.22;
+  background:
+    linear-gradient(112deg,
+      transparent 0%,
+      transparent 18%,
+      rgba(0,0,0,0.9) 18.8%,
+      transparent 19.6%,
+      transparent 34%,
+      rgba(0,0,0,0.7) 34.8%,
+      transparent 35.5%,
+      transparent 52%,
+      rgba(255,255,255,0.22) 52.8%,
+      transparent 53.6%,
+      transparent 69%,
+      rgba(0,0,0,0.85) 69.8%,
+      transparent 70.8%,
+      transparent 100%);
+  mix-blend-mode: multiply;
 }
 
 .core-line {
