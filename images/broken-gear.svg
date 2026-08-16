@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Broken Gear</title>
+  <desc id="desc">A broken, cracked gear symbol with a missing section and scratch damage.</desc>
+
+  <defs>
+    <mask id="gearMask">
+      <rect width="600" height="600" fill="black"/>
+
+      <!-- full gear silhouette -->
+      <g fill="white">
+        <circle cx="300" cy="300" r="150"/>
+
+        <!-- teeth -->
+        <rect x="280" y="55" width="40" height="92" rx="6"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(30 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(60 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(90 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(120 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(150 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(180 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(210 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(240 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(270 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(300 300 300)"/>
+        <rect x="280" y="55" width="40" height="92" rx="6" transform="rotate(330 300 300)"/>
+      </g>
+
+      <!-- center hole -->
+      <circle cx="300" cy="300" r="58" fill="black"/>
+
+      <!-- broken missing chunk -->
+      <path fill="black" d="M386 126
+                           L500 152
+                           L530 236
+                           L466 288
+                           L418 252
+                           L392 215
+                           L360 208
+                           L345 182
+                           Z"/>
+
+      <!-- chipped lower-left -->
+      <path fill="black" d="M155 403
+                           L120 448
+                           L155 492
+                           L216 472
+                           L200 430
+                           Z"/>
+
+      <!-- gouges / scratch cuts -->
+      <path fill="black" d="M228 196 L262 206 L252 225 L214 216 Z"/>
+      <path fill="black" d="M345 338 L382 350 L371 369 L334 359 Z"/>
+      <path fill="black" d="M245 382 L288 394 L278 413 L234 402 Z"/>
+    </mask>
+
+    <linearGradient id="gearFill" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f1ede3"/>
+      <stop offset="55%" stop-color="#cfc8bb"/>
+      <stop offset="100%" stop-color="#9b9388"/>
+    </linearGradient>
+
+    <linearGradient id="shadowFill" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#4d473f"/>
+      <stop offset="100%" stop-color="#2d2823"/>
+    </linearGradient>
+  </defs>
+
+  <!-- gear -->
+  <g mask="url(#gearMask)">
+    <rect width="600" height="600" fill="url(#gearFill)"/>
+
+    <!-- inner shadow / depth -->
+    <circle cx="300" cy="300" r="165" fill="none" stroke="#6d665d" stroke-width="22" opacity="0.35"/>
+    <circle cx="300" cy="300" r="108" fill="none" stroke="#585148" stroke-width="22" opacity="0.35"/>
+
+    <!-- darker broken-side shading -->
+    <path d="M330 110
+             C430 125 490 180 506 258
+             C470 248 434 237 408 214
+             C391 199 378 180 360 171
+             C349 166 340 164 330 162 Z"
+          fill="url(#shadowFill)" opacity="0.42"/>
+
+    <!-- lower-left wear -->
+    <path d="M129 411
+             C154 438 184 460 231 475
+             L208 507
+             C169 497 138 474 114 444 Z"
+          fill="#5a534b" opacity="0.35"/>
+  </g>
+
+  <!-- crack / scratch lines -->
+  <g fill="none" stroke="#2a251f" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M344 160
+             L327 196
+             L353 231
+             L322 270
+             L343 308
+             L326 349"
+          stroke-width="9"/>
+
+    <path d="M274 215
+             L244 246
+             L263 281
+             L231 312
+             L254 348
+             L226 380"
+          stroke-width="8"/>
+
+    <path d="M356 206
+             L390 186
+             L421 188
+             L451 173"
+          stroke-width="7"/>
+
+    <path d="M215 424
+             L250 403
+             L292 405"
+          stroke-width="7"/>
+
+    <path d="M186 214 L234 228" stroke-width="6"/>
+    <path d="M327 386 L373 399" stroke-width="6"/>
+    <path d="M240 162 L279 175" stroke-width="5"/>
+  </g>
+</svg>
