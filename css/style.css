@@ -177,6 +177,13 @@ section {
   transform: rotate(-63deg);
 }
 
+.hero-line::before {
+  z-index: 0;
+  opacity: 0.70;
+  transform: translate(0.16em, 0.05em) skewX(10deg);
+  filter: blur(1.6px);
+}
+
 .core-line {
   font-size: clamp(2.2rem, 11vw, 7rem);
   line-height: 0.95;
