@@ -147,7 +147,36 @@ section {
   }
 }
 
+@media (min-width: 768px) {
+  .hero-gear {
+    left: -12vw;
+    bottom: 6vh;
+    width: 58vw;
+    max-width: 620px;
+    opacity: 0.2;
+    transform: rotate(-30deg);
+  }
+
+  .hero-title {
+    transform: rotate(-5deg);
+  }
+}
+
 @media (min-width: 1024px) {
+  .hero-gear {
+    left: -4vw;
+    bottom: 2vh;
+    width: 42vw;
+    max-width: 700px;
+    opacity: 0.22;
+    transform: rotate(-31deg);
+  }
+
+  .hero-title {
+    max-width: 8ch;
+    transform: rotate(-6deg);
+  }
+}(min-width: 1024px) {
   section {
     padding: 8rem 0;
   }
