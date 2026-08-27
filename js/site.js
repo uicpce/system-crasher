@@ -14,6 +14,10 @@ async function loadFragment(element) {
     const html = await response.text();
     element.innerHTML = html;
     element.dataset.loaded = "true";
+
+    if (element.querySelector("[data-empty-section]")) {
+      element.hidden = true;
+    }
   } catch (error) {
     console.error(`Could not load ${src}:`, error);
     element.innerHTML = "";
