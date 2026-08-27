@@ -30,6 +30,60 @@ async function loadAllFragments() {
   await Promise.all(fragments.map(loadFragment));
 }
 
+function createPolaroidCard(photo, index) {
+  const figure = document.createElement("figure");
+  figure.className = `polaroid-card polaroid-card-${index + 1}`;
+
+  const image = document.createElement("img");
+  image.src = `images/polaroids/${photo.file}`;
+  image.alt = photo.alt || "SYSTEM CRASHER photo";
+  image.loading = "lazy";
+  image.decoding = "async";
+
+  figure.appendChild(image);
+
+  if (photo.caption) {
+    const caption = document.createElement("figcaption");
+    caption.textContent = photo.caption;
+    figure.appendChild(caption);
+  }
+
+  return figure;
+}
+
+async function loadPolaroids() {
+  try {
+    const response = await fetch("images/polaroids/photos.json", { cache: "no-cache" });
+    if (!response.ok) return;
+
+    const registry = await response.json();
+
+    Object.entries(registry).forEach(([slotId, photos]) => {
+      if (!Array.isArray(photos) || photos.length === 0) return;
+
+      const slot = document.getElementById(slotId);
+      if (!slot) return;
+
+      const page = document.createElement("div");
+      page.className = "page polaroid-stage";
+
+      photos.forEach((photo, index) => {
+        if (!photo || !photo.file) return;
+        page.appendChild(createPolaroidCard(photo, index));
+      });
+
+      if (!page.children.length) return;
+
+      slot.innerHTML = "";
+      slot.appendChild(page);
+      slot.hidden = false;
+      slot.dataset.loaded = "true";
+    });
+  } catch (error) {
+    console.error("Could not load polaroid registry:", error);
+  }
+}
+
 function setupLegalOverlay() {
   const links = [...document.querySelectorAll("[data-legal-link]")];
   const overlay = document.getElementById("legal-overlay");
@@ -83,5 +137,10 @@ function setupLegalOverlay() {
   });
 }
 
-loadAllFragments();
-setupLegalOverlay();
+async function initSite() {
+  await loadAllFragments();
+  await loadPolaroids();
+  setupLegalOverlay();
+}
+
+initSite();
