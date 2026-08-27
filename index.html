@@ -1,155 +1,138 @@
 <!doctype html>
 <html lang="de">
-
 <head>
   <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>SYSTEM CRASHER</title>
+  <meta name="description" content="SYSTEM CRASHER. Your life. Your voice. Your noise.">
+  <meta name="robots" content="index, follow">
 
-  <meta
-    name="description"
-    content="SYSTEM CRASHER. Your life. Your voice. Your noise."
-  >
-
-  <link
-    rel="stylesheet"
-    href="css/style.css"
-  >
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <main id="main-content">
 
-  <main>
-
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
-
-    <section class="hero">
-
-      <div
-        class="hero-gear"
-        aria-hidden="true"
-      >
-        <img
-          src="images/broken-gear.svg"
-          alt=""
-        >
+    <!-- 01 — HERO -->
+    <section class="hero" id="home">
+      <div class="hero-gear" aria-hidden="true">
+        <img src="images/broken-gear.svg" alt="">
       </div>
 
       <div class="page hero-inner">
-
         <h1 class="hero-title hero-title-damaged">
-
           <span class="hero-line line-1">
-
-            <span
-              class="paint paint-1"
-              aria-hidden="true"
-            ></span>
-
-            <span
-              class="paint paint-2"
-              aria-hidden="true"
-            ></span>
-
-            <span class="hero-text">
-              SYSTEM
-            </span>
-
+            <span class="paint paint-1" aria-hidden="true"></span>
+            <span class="paint paint-2" aria-hidden="true"></span>
+            <span class="hero-text">SYSTEM</span>
           </span>
-
 
           <span class="hero-line line-2">
-
-            <span
-              class="paint paint-3"
-              aria-hidden="true"
-            ></span>
-
-            <span
-              class="paint paint-4"
-              aria-hidden="true"
-            ></span>
-
-            <span class="hero-text">
-              CRASHER
-            </span>
-
+            <span class="paint paint-3" aria-hidden="true"></span>
+            <span class="paint paint-4" aria-hidden="true"></span>
+            <span class="hero-text">CRASHER</span>
           </span>
-
         </h1>
-
       </div>
-
     </section>
 
-
-    <!-- =====================================================
-         CORE LINE
-         ===================================================== -->
-
-    <section>
-
-      <div class="page">
-
-        <div class="core-line">
-
-          <span>
-            Your life.
-          </span>
-
-          <span>
-            Your voice.
-          </span>
-
-          <span class="noise">
-            Your noise.
-          </span>
-
-        </div>
-
-      </div>
-
+    <!-- 02 — CORE LINE -->
+    <section id="core-line" class="content-section" data-include="content/core-line.html">
+      <div class="page"><p class="content-loading">Loading noise…</p></div>
     </section>
 
-
-    <!-- =====================================================
-         MANIFEST – aktueller Testausschnitt
-         ===================================================== -->
-
-    <section>
-
-      <div class="page">
-
-        <div class="manifest">
-
-          <p>
-            Nicht jeder Mensch passt in dieselbe Form.
-          </p>
-
-          <p>
-            Manchmal zeigt erst der Mensch,
-            der nicht hineinpasst,
-            was an der Konstruktion nicht stimmt.
-          </p>
-
-        </div>
-
-      </div>
-
+    <!-- 03 — MANIFEST -->
+    <section id="manifest" class="content-section" data-include="content/manifest.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
     </section>
 
+    <!-- 04 — IDENTITY / DEFINITION -->
+    <section id="definition" class="content-section" data-include="content/definition.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
+
+    <!-- 05 — CLAIM MOSAIC -->
+    <section id="claims" class="content-section" data-include="content/claims.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
+
+    <!-- 06 — MUSIC -->
+    <section id="music" class="content-section" data-include="content/music.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
+
+    <!-- FUNCTIONAL — SHOWS -->
+    <section id="shows" class="content-section" data-include="content/shows.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
+
+    <!-- FUNCTIONAL — MERCH -->
+    <section id="merch" class="content-section" data-include="content/merch.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
+
+    <!-- FUNCTIONAL — PRESS / EPK / TECH RIDER -->
+    <section id="press" class="content-section" data-include="content/press.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
+
+    <!-- FUNCTIONAL — BOOKING / CONTACT -->
+    <section id="contact" class="content-section" data-include="content/contact.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
+
+    <!-- 07 — SOCIAL -->
+    <section id="follow" class="content-section" data-include="content/follow.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
+
+    <!-- 08 — GRAFFITI / STANCE WALL -->
+    <section id="wall" class="content-section stance-wall" data-include="content/wall.html">
+      <div class="page"><p class="content-loading">Loading…</p></div>
+    </section>
   </main>
 
+  <footer class="site-footer">
+    <a
+      href="legal/impressum.html"
+      id="legal-link"
+      class="legal-link"
+      aria-label="Impressum und rechtliche Informationen"
+      title="Impressum"
+    >ⓘ</a>
+  </footer>
+
+  <div id="legal-overlay" class="legal-overlay" hidden>
+    <div class="legal-overlay-backdrop" data-close-legal></div>
+
+    <div
+      class="legal-overlay-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="legal-overlay-title"
+    >
+      <button
+        type="button"
+        class="legal-overlay-close"
+        data-close-legal
+        aria-label="Impressum schließen"
+      >×</button>
+
+      <div id="legal-overlay-content">
+        <h2 id="legal-overlay-title">Impressum</h2>
+        <p>Loading…</p>
+      </div>
+    </div>
+  </div>
 
   <script src="js/site.js"></script>
 
+  <noscript>
+    <div class="noscript-message">
+      <p>Diese Website benötigt JavaScript, um ihre Inhaltsblöcke vollständig zu laden.</p>
+      <p><a href="legal/impressum.html">Impressum</a></p>
+    </div>
+  </noscript>
 </body>
-
 </html>
