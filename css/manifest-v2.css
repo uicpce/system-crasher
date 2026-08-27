@@ -1,0 +1,347 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST POSTER V2
+   Segmented, torn, re-taped tour-poster look
+   ========================================================= */
+
+.manifest-poster-stage {
+  padding-block: 5.5rem;
+  overflow: visible;
+}
+
+.manifest-poster-stage > .page.manifest-poster-v2 {
+  width: min(calc(100% - 2.2rem), 54rem);
+  margin-inline: auto;
+  padding: 0;
+  background: transparent;
+  color: var(--poster-ink);
+  transform: none;
+  box-shadow: none;
+  clip-path: none;
+  isolation: isolate;
+}
+
+.manifest-poster-stage > .page.manifest-poster-v2::before {
+  display: none;
+}
+
+.manifest-v2 {
+  position: relative;
+  max-width: none;
+  margin: 0;
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  line-height: 1.46;
+  font-weight: 650;
+}
+
+.manifest-v2::before,
+.manifest-v2::after {
+  display: none;
+}
+
+.manifest-segment {
+  position: relative;
+  padding: clamp(2rem, 7vw, 4.2rem) clamp(1.45rem, 6vw, 3.8rem);
+  background:
+    linear-gradient(rgba(255,255,255,0.025), rgba(0,0,0,0.035)),
+    var(--poster-pink);
+  color: var(--poster-ink);
+  box-shadow:
+    0 16px 34px rgba(0,0,0,0.36),
+    inset 0 0 0 1px rgba(23,35,60,0.10);
+  overflow: visible;
+}
+
+.manifest-segment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background:
+    radial-gradient(circle at 7% 5%, rgba(16,23,35,0.26) 0 1px, transparent 2px),
+    radial-gradient(circle at 89% 14%, rgba(16,23,35,0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 15% 82%, rgba(16,23,35,0.16) 0 2px, transparent 3px),
+    repeating-linear-gradient(
+      104deg,
+      transparent 0 34px,
+      rgba(23,35,60,0.04) 35px 36px,
+      transparent 37px 67px
+    );
+  mix-blend-mode: multiply;
+}
+
+.manifest-segment p {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 1.28em;
+}
+
+.manifest-segment p:last-child {
+  margin-bottom: 0;
+}
+
+.segment-a {
+  transform: rotate(1.45deg);
+  transform-origin: center bottom;
+  clip-path: polygon(
+    0.5% 0.6%, 99.3% 0%, 100% 17%, 99.5% 38%, 100% 64%,
+    99.2% 86%, 99.7% 99.1%, 86% 100%, 71% 99.6%, 55% 100%,
+    38% 99.5%, 20% 100%, 0.5% 99.2%, 0% 76%, 0.6% 48%, 0% 19%
+  );
+}
+
+.segment-b {
+  transform: rotate(-1.65deg);
+  transform-origin: center top;
+  margin-top: -0.8rem;
+  clip-path: polygon(
+    0.4% 0.8%, 18% 0%, 36% 0.7%, 54% 0%, 74% 0.5%, 99.5% 0.2%,
+    100% 18%, 99.3% 43%, 100% 69%, 99.2% 99.1%, 82% 100%, 63% 99.4%,
+    45% 100%, 27% 99.3%, 0.5% 100%, 0% 77%, 0.7% 49%, 0% 21%
+  );
+}
+
+.segment-c {
+  transform: rotate(0.55deg);
+  transform-origin: center top;
+  margin-top: -0.75rem;
+  padding-bottom: clamp(2.4rem, 8vw, 4.6rem);
+  clip-path: polygon(
+    0.5% 0.7%, 21% 0%, 43% 0.6%, 65% 0%, 84% 0.4%, 99.4% 0.1%,
+    100% 26%, 99.5% 58%, 100% 98.8%, 82% 100%, 62% 99.5%, 41% 100%,
+    20% 99.4%, 0.4% 100%, 0% 72%, 0.6% 35%
+  );
+}
+
+/* Gaffa: tour-used, not symmetrical */
+.segment-a::after,
+.segment-c::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  width: clamp(6rem, 25vw, 9.5rem);
+  height: clamp(1.35rem, 5vw, 2rem);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.035) 0 2px,
+      transparent 2px 9px
+    ),
+    var(--tape);
+  opacity: 0.92;
+  box-shadow: 0 3px 9px rgba(0,0,0,0.30);
+  pointer-events: none;
+}
+
+.segment-a::after {
+  left: -1.4rem;
+  top: -0.8rem;
+  transform: rotate(-11deg);
+}
+
+.segment-c::after {
+  right: -1.45rem;
+  bottom: -0.7rem;
+  transform: rotate(8deg);
+}
+
+/* Yellow markers become visual chapter anchors */
+.manifest-v2 .manifest-highlight {
+  display: table;
+  padding: 0.09em 0.3em 0.13em;
+  margin-left: -0.3em;
+  background: var(--signal);
+  color: var(--poster-ink);
+  font-weight: 850;
+  line-height: 1.22;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.segment-a .manifest-highlight {
+  transform: rotate(-0.45deg);
+}
+
+.segment-b .manifest-highlight {
+  transform: rotate(0.55deg);
+}
+
+.manifest-final {
+  font-size: 1.06em;
+  transform: rotate(-0.65deg);
+}
+
+/* =========================================================
+   RIPS / TEARS
+   These are dark gaps with a pink paper edge.
+   ========================================================= */
+
+.manifest-rip {
+  position: relative;
+  z-index: 5;
+  height: clamp(2.2rem, 7vw, 3.7rem);
+  margin: clamp(-1.2rem, -3vw, -0.5rem) 0;
+  pointer-events: none;
+}
+
+.manifest-rip::before {
+  content: "";
+  position: absolute;
+  inset: 16% -2%;
+  background: var(--bg);
+  box-shadow:
+    0 -2px 0 rgba(231,74,155,0.92),
+    0 2px 0 rgba(231,74,155,0.68),
+    0 7px 12px rgba(0,0,0,0.26);
+}
+
+.rip-left::before {
+  clip-path: polygon(
+    0 47%, 7% 27%, 15% 52%, 23% 30%, 31% 59%, 40% 38%,
+    49% 62%, 58% 43%, 67% 58%, 76% 47%, 88% 53%, 100% 49%,
+    100% 69%, 89% 66%, 78% 74%, 67% 67%, 57% 78%, 47% 69%,
+    36% 82%, 26% 72%, 16% 84%, 8% 69%, 0 76%
+  );
+  transform: rotate(-1.2deg) translateX(-7%);
+}
+
+.rip-right::before {
+  clip-path: polygon(
+    0 50%, 11% 45%, 21% 56%, 31% 40%, 41% 61%, 52% 37%,
+    62% 58%, 72% 35%, 82% 54%, 91% 28%, 100% 48%,
+    100% 76%, 92% 68%, 83% 84%, 73% 66%, 63% 80%, 53% 64%,
+    42% 78%, 31% 67%, 21% 75%, 11% 66%, 0 73%
+  );
+  transform: rotate(1.1deg) translateX(7%);
+}
+
+/* =========================================================
+   AUDIO NOTE / POST-IT
+   Hidden until an audio source exists.
+   ========================================================= */
+
+.audio-note[hidden] {
+  display: none !important;
+}
+
+.audio-note {
+  position: absolute;
+  z-index: 8;
+  right: clamp(-0.8rem, -2vw, -0.25rem);
+  top: clamp(1rem, 4vw, 2rem);
+  width: min(11.5rem, 43vw);
+  transform: rotate(-3.2deg);
+  filter: drop-shadow(0 8px 9px rgba(0,0,0,0.26));
+}
+
+.audio-note::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 54%;
+  height: 1rem;
+  left: 24%;
+  top: -0.58rem;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04) 0 2px,
+      transparent 2px 8px
+    ),
+    var(--tape);
+  transform: rotate(4deg);
+  opacity: 0.94;
+}
+
+.audio-note-button {
+  width: 100%;
+  border: 0;
+  padding: 1rem 0.9rem 1.05rem;
+  background: #efe48c;
+  color: #1c2230;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  clip-path: polygon(1% 1%, 99% 0, 100% 91%, 94% 100%, 2% 98%, 0 9%);
+}
+
+.audio-note-button:focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 4px;
+}
+
+.audio-note-play {
+  display: inline-block;
+  margin-right: 0.32rem;
+  font-size: 0.92em;
+}
+
+.audio-note-copy strong {
+  display: inline;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+}
+
+.audio-note-copy small {
+  display: block;
+  margin-top: 0.35rem;
+  padding-left: 1.15rem;
+  font-size: 0.68rem;
+  opacity: 0.74;
+}
+
+/* Give the first paragraph enough room if the note becomes active */
+.segment-a:has(.audio-note:not([hidden])) {
+  padding-top: clamp(6rem, 20vw, 8rem);
+}
+
+@media (min-width: 768px) {
+  .manifest-poster-stage > .page.manifest-poster-v2 {
+    width: min(calc(100% - 4rem), 58rem);
+  }
+
+  .segment-a {
+    transform: rotate(1.8deg);
+  }
+
+  .segment-b {
+    transform: rotate(-2deg);
+  }
+
+  .segment-c {
+    transform: rotate(0.75deg);
+  }
+
+  .audio-note {
+    width: 12.5rem;
+    right: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .manifest-poster-stage > .page.manifest-poster-v2 {
+    width: min(calc(100% - 6rem), 60rem);
+    margin-left: 6%;
+    margin-right: auto;
+  }
+
+  .manifest-v2 {
+    font-size: clamp(1.04rem, 1.35vw, 1.36rem);
+  }
+
+  .segment-a {
+    transform: rotate(2.15deg);
+  }
+
+  .segment-b {
+    transform: rotate(-2.35deg);
+  }
+
+  .segment-c {
+    transform: rotate(0.9deg);
+  }
+
+  .manifest-rip {
+    height: 3.6rem;
+  }
+}
