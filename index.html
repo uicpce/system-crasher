@@ -12,97 +12,275 @@
 </head>
 
 <body>
-  <main id="main-content">
+  <div class="site-shell">
 
-    <!-- 01 — HERO -->
-    <section class="hero" id="home">
-      <div class="hero-gear" aria-hidden="true">
-        <img src="images/broken-gear.svg" alt="">
-      </div>
+    <main id="main-content" class="page-content">
 
-      <div class="page hero-inner">
-        <h1 class="hero-title hero-title-damaged">
-          <span class="hero-line line-1">
-            <span class="paint paint-1" aria-hidden="true"></span>
-            <span class="paint paint-2" aria-hidden="true"></span>
-            <span class="hero-text">SYSTEM</span>
-          </span>
+      <!-- =====================================================
+           01 — HERO / BRAND
+           ===================================================== -->
+      <section class="hero core-section" id="home">
+        <div class="hero-gear" aria-hidden="true">
+          <img src="images/broken-gear.svg" alt="">
+        </div>
 
-          <span class="hero-line line-2">
-            <span class="paint paint-3" aria-hidden="true"></span>
-            <span class="paint paint-4" aria-hidden="true"></span>
-            <span class="hero-text">CRASHER</span>
-          </span>
-        </h1>
-      </div>
-    </section>
+        <div class="page hero-inner">
+          <h1 class="hero-title hero-title-damaged">
+            <span class="hero-line line-1">
+              <span class="paint paint-1" aria-hidden="true"></span>
+              <span class="paint paint-2" aria-hidden="true"></span>
+              <span class="hero-text">SYSTEM</span>
+            </span>
 
-    <!-- 02 — CORE LINE -->
-    <section id="core-line" class="content-section" data-include="content/core-line.html">
-      <div class="page"><p class="content-loading">Loading noise…</p></div>
-    </section>
+            <span class="hero-line line-2">
+              <span class="paint paint-3" aria-hidden="true"></span>
+              <span class="paint paint-4" aria-hidden="true"></span>
+              <span class="hero-text">CRASHER</span>
+            </span>
+          </h1>
+        </div>
+      </section>
 
-    <!-- 03 — MANIFEST -->
-    <section id="manifest" class="content-section" data-include="content/manifest.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           02 — CORE LINE
+           YOUR LIFE. YOUR VOICE. YOUR NOISE.
+           ===================================================== -->
+      <section
+        id="core-line"
+        class="content-section core-section hero-tagline"
+        data-include="content/core-line.html"
+      >
+        <div class="page"><p class="content-loading">Loading noise…</p></div>
+      </section>
 
-    <!-- 04 — IDENTITY / DEFINITION -->
-    <section id="definition" class="content-section" data-include="content/definition.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           03 — MANIFEST POSTER
+           Pinkes Tour-Poster, dunkle Schrift, gelbe Akzente,
+           Gaffa-Tape und leichte Gebrauchsspuren via CSS.
+           ===================================================== -->
+      <section
+        id="manifest"
+        class="content-section core-section manifest-poster-stage"
+        data-include="content/manifest.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
 
-    <!-- 05 — CLAIM MOSAIC -->
-    <section id="claims" class="content-section" data-include="content/claims.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           OPTIONAL POLAROID 01
+           Bleibt verborgen, solange keine Bilder hinterlegt sind.
+           ===================================================== -->
+      <section
+        id="photo-slot-01"
+        class="content-section photo-slot photo-slot-01"
+        data-include="content/photo-01.html"
+      >
+        <div class="page"><p class="content-loading">Loading image…</p></div>
+      </section>
 
-    <!-- 06 — MUSIC -->
-    <section id="music" class="content-section" data-include="content/music.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           04 — IDENTITY / DEFINITION
+           ===================================================== -->
+      <section
+        id="definition"
+        class="content-section core-section identity-copy"
+        data-include="content/definition.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
 
-    <!-- FUNCTIONAL — SHOWS -->
-    <section id="shows" class="content-section" data-include="content/shows.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           05 — CLAIM MOSAIC
+           ===================================================== -->
+      <section
+        id="claims"
+        class="content-section core-section claim-mosaic-stage"
+        data-include="content/claims.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
 
-    <!-- FUNCTIONAL — MERCH -->
-    <section id="merch" class="content-section" data-include="content/merch.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           OPTIONAL POLAROID 02
+           Bleibt verborgen, solange keine Bilder hinterlegt sind.
+           ===================================================== -->
+      <section
+        id="photo-slot-02"
+        class="content-section photo-slot photo-slot-02"
+        data-include="content/photo-02.html"
+      >
+        <div class="page"><p class="content-loading">Loading image…</p></div>
+      </section>
 
-    <!-- FUNCTIONAL — PRESS / EPK / TECH RIDER -->
-    <section id="press" class="content-section" data-include="content/press.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           06 — MUSIC
+           ===================================================== -->
+      <section
+        id="music"
+        class="content-section core-section project-status"
+        data-include="content/music.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
 
-    <!-- FUNCTIONAL — BOOKING / CONTACT -->
-    <section id="contact" class="content-section" data-include="content/contact.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           FUNCTIONAL — SHOWS
+           Automatisch verborgen, solange keine bestätigten Shows da sind.
+           ===================================================== -->
+      <section
+        id="shows"
+        class="content-section utility-section shows-section"
+        data-include="content/shows.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
 
-    <!-- 07 — SOCIAL -->
-    <section id="follow" class="content-section" data-include="content/follow.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
+      <!-- =====================================================
+           FUNCTIONAL — MERCH
+           ===================================================== -->
+      <section
+        id="merch"
+        class="content-section utility-section merch-preview"
+        data-include="content/merch.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
 
-    <!-- 08 — GRAFFITI / STANCE WALL -->
-    <section id="wall" class="content-section stance-wall" data-include="content/wall.html">
-      <div class="page"><p class="content-loading">Loading…</p></div>
-    </section>
-  </main>
+      <!-- =====================================================
+           FUNCTIONAL — PRESS / EPK / TECH RIDER
+           ===================================================== -->
+      <section
+        id="press"
+        class="content-section utility-section press-epk"
+        data-include="content/press.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
 
-  <footer class="site-footer">
-    <a
-      href="legal/impressum.html"
-      id="legal-link"
-      class="legal-link"
-      aria-label="Impressum und rechtliche Informationen"
-      title="Impressum"
-    >ⓘ</a>
+      <!-- =====================================================
+           FUNCTIONAL — BOOKING / CONTACT
+           ===================================================== -->
+      <section
+        id="contact"
+        class="content-section utility-section booking-contact"
+        data-include="content/contact.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
+
+      <!-- =====================================================
+           07 — SOCIAL
+           ===================================================== -->
+      <section
+        id="follow"
+        class="content-section utility-section follow-noise"
+        data-include="content/follow.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
+
+      <!-- =====================================================
+           08 — GRAFFITI / STANCE WALL
+           ===================================================== -->
+      <section
+        id="wall"
+        class="content-section core-section stance-wall slogan-wall"
+        data-include="content/wall.html"
+      >
+        <div class="page"><p class="content-loading">Loading…</p></div>
+      </section>
+
+      <!-- =====================================================
+           OPTIONAL POLAROID 03
+           Für ein mögliches Schlussbild / Backstage-Moment.
+           ===================================================== -->
+      <section
+        id="photo-slot-03"
+        class="content-section photo-slot photo-slot-03"
+        data-include="content/photo-03.html"
+      >
+        <div class="page"><p class="content-loading">Loading image…</p></div>
+      </section>
+
+    </main>
+
+    <!-- =======================================================
+         DESKTOP SIGNATURE PORTRAIT
+         Nur Desktop. Bleibt verborgen, bis ein Bild hinterlegt ist.
+         Später: halbes Gesicht + bedrucktes Tuch / Manga-Gesicht.
+         ======================================================= -->
+    <aside
+      id="desktop-portrait"
+      class="desktop-portrait"
+      data-include="content/desktop-portrait.html"
+      aria-label="SYSTEM CRASHER Signature Portrait"
+    ></aside>
+
+  </div>
+
+  <!-- =========================================================
+       UTILITY FOOTER
+       Kann später auf die wirklich benötigten Punkte reduziert werden.
+       ========================================================= -->
+  <footer class="site-footer footer-tools" id="utility">
+    <div class="page footer-tools-inner">
+
+      <nav class="footer-utility-nav" aria-label="Rechtliches und Kontakt">
+        <a
+          href="legal/impressum.html"
+          class="utility-link legal-link"
+          data-legal-link
+          aria-label="Impressum öffnen"
+          title="Impressum"
+        >
+          <span class="utility-icon" aria-hidden="true">ⓘ</span>
+          <span class="utility-label">Impressum</span>
+        </a>
+
+        <a
+          href="legal/datenschutz.html"
+          class="utility-link privacy-link"
+          data-legal-link
+          aria-label="Datenschutz öffnen"
+          title="Datenschutz"
+        >
+          <span class="utility-icon" aria-hidden="true">◈</span>
+          <span class="utility-label">Datenschutz</span>
+        </a>
+
+        <a
+          href="mailto:SystemCrasherOfficial@gmail.com"
+          class="utility-link contact-utility-link"
+          aria-label="E-Mail an SYSTEM CRASHER"
+          title="Kontakt"
+        >
+          <span class="utility-icon" aria-hidden="true">✉</span>
+          <span class="utility-label">Kontakt</span>
+        </a>
+
+        <a
+          href="#home"
+          class="utility-link back-to-top-link"
+          aria-label="Zum Seitenanfang"
+          title="Nach oben"
+        >
+          <span class="utility-icon" aria-hidden="true">↑</span>
+          <span class="utility-label">Top</span>
+        </a>
+      </nav>
+
+      <p class="site-copyright">
+        © 2026 SYSTEM CRASHER
+      </p>
+
+    </div>
   </footer>
 
+  <!-- =========================================================
+       GENERISCHES LEGAL OVERLAY
+       Lädt Impressum oder Datenschutz aus legal/*.html.
+       Direkte Links bleiben als Fallback erhalten.
+       ========================================================= -->
   <div id="legal-overlay" class="legal-overlay" hidden>
     <div class="legal-overlay-backdrop" data-close-legal></div>
 
@@ -116,11 +294,11 @@
         type="button"
         class="legal-overlay-close"
         data-close-legal
-        aria-label="Impressum schließen"
+        aria-label="Fenster schließen"
       >×</button>
 
       <div id="legal-overlay-content">
-        <h2 id="legal-overlay-title">Impressum</h2>
+        <h2 id="legal-overlay-title">Information</h2>
         <p>Loading…</p>
       </div>
     </div>
@@ -131,7 +309,13 @@
   <noscript>
     <div class="noscript-message">
       <p>Diese Website benötigt JavaScript, um ihre Inhaltsblöcke vollständig zu laden.</p>
-      <p><a href="legal/impressum.html">Impressum</a></p>
+      <p>
+        <a href="legal/impressum.html">Impressum</a>
+        ·
+        <a href="legal/datenschutz.html">Datenschutz</a>
+        ·
+        <a href="mailto:SystemCrasherOfficial@gmail.com">Kontakt</a>
+      </p>
     </div>
   </noscript>
 </body>
