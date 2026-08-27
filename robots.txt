@@ -1,0 +1,6 @@
+# SYSTEM CRASHER
+# These rules become effective at the site root when a custom domain is used.
+
+User-agent: *
+Disallow: /content/
+Allow: /
