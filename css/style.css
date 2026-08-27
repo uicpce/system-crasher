@@ -364,7 +364,6 @@ section {
   );
 }
 
-/* dunkler Dreck / Abrieb wie ein mehrfach transportiertes Tourplakat */
 .manifest-poster-stage > .page::before {
   content: "";
   position: absolute;
@@ -385,7 +384,6 @@ section {
     );
 }
 
-/* Gaffa oben links */
 .manifest-poster-stage .manifest::before,
 .manifest-poster-stage .manifest::after {
   content: "";
@@ -434,7 +432,6 @@ section {
   margin-bottom: 0;
 }
 
-/* gelbe Marker-Akzente statt komplett gelber Fließschrift */
 .manifest-poster-stage .manifest p:first-child,
 .manifest-poster-stage .manifest p:nth-of-type(7),
 .manifest-poster-stage .manifest p:last-child {
@@ -456,7 +453,7 @@ section {
 }
 
 /* =========================================================
-   OPTIONAL PHOTO SLOTS
+   OPTIONAL POLAROID PHOTO SYSTEM
    ========================================================= */
 
 .photo-slot[hidden],
@@ -464,9 +461,55 @@ section {
   display: none !important;
 }
 
+.photo-slot {
+  padding-block: 3rem;
+}
+
+.polaroid-stage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.polaroid-card {
+  width: min(78vw, 20rem);
+  margin: 0;
+  padding: 0.65rem 0.65rem 2.7rem;
+  background: #eeeae1;
+  color: #171717;
+  box-shadow: 0 13px 28px rgba(0,0,0,0.42);
+  transform: rotate(-2.2deg);
+}
+
+.polaroid-card:nth-child(2n) {
+  transform: rotate(2.4deg) translateY(0.8rem);
+}
+
+.polaroid-card:nth-child(3n) {
+  transform: rotate(-0.8deg) translateY(-0.45rem);
+}
+
+.polaroid-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #1a1a1a;
+  filter: contrast(1.04) saturate(0.86);
+}
+
+.polaroid-card figcaption {
+  margin: 0.7rem 0 -1.8rem;
+  padding-inline: 0.2rem;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
 /* =========================================================
    UTILITY FOOTER — BASIC FALLBACK
-   Feindesign folgt später mit der restlichen Utility-Zone.
    ========================================================= */
 
 .footer-tools {
@@ -533,6 +576,14 @@ section {
   .manifest-poster-stage > .page {
     transform: rotate(-1.6deg);
   }
+
+  .polaroid-stage {
+    gap: 1.5rem;
+  }
+
+  .polaroid-card {
+    width: min(38vw, 21rem);
+  }
 }
 
 /* =========================================================
@@ -571,5 +622,18 @@ section {
 
   .manifest-poster-stage .manifest {
     font-size: clamp(1.05rem, 1.45vw, 1.4rem);
+  }
+
+  .photo-slot {
+    padding-block: 4rem;
+  }
+
+  .polaroid-stage {
+    justify-content: flex-start;
+    padding-left: 5%;
+  }
+
+  .polaroid-card {
+    width: min(24vw, 22rem);
   }
 }
