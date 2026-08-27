@@ -4,6 +4,9 @@
   --text: #f7f7f2;
   --muted: #b6b6b0;
   --signal: #f2d400;
+  --poster-pink: #e74a9b;
+  --poster-ink: #17233c;
+  --tape: #242424;
   --max-width: 1200px;
 }
 
@@ -151,14 +154,12 @@ section {
     58% 20%,
     76% 4%,
     100% 15%,
-
     93% 26%,
     100% 34%,
     84% 43%,
     98% 51%,
     78% 59%,
     100% 70%,
-
     90% 78%,
     100% 88%,
     72% 94%,
@@ -172,7 +173,6 @@ section {
   filter: blur(0.45px);
 }
 
-/* kleine aggressive Kratzkante am Ende */
 .paint::after {
   content: "";
   position: absolute;
@@ -207,59 +207,41 @@ section {
   filter: blur(0.25px);
 }
 
-/* SYSTEM – obere Schleppspur */
 .paint-1 {
   left: 54%;
   top: 17%;
   width: 58%;
   height: 22%;
-
-  transform:
-    rotate(4deg)
-    skewX(19deg);
+  transform: rotate(4deg) skewX(19deg);
 }
 
-/* SYSTEM – untere, längere Verletzung */
 .paint-2 {
   left: 47%;
   top: 55%;
   width: 66%;
   height: 19%;
-
-  transform:
-    rotate(-1deg)
-    skewX(23deg);
-
+  transform: rotate(-1deg) skewX(23deg);
   opacity: 0.78;
 }
 
-/* CRASHER – obere Schleppspur */
 .paint-3 {
   left: 39%;
   top: 13%;
   width: 67%;
   height: 21%;
-
-  transform:
-    rotate(3deg)
-    skewX(20deg);
+  transform: rotate(3deg) skewX(20deg);
 }
 
-/* CRASHER – tiefer Kratz-/Schmierzug */
 .paint-4 {
   left: 53%;
   top: 56%;
   width: 63%;
   height: 18%;
-
-  transform:
-    rotate(-2deg)
-    skewX(25deg);
-
+  transform: rotate(-2deg) skewX(25deg);
   opacity: 0.82;
 }
 
-/ =========================================================
+/* =========================================================
    SCRATCH CUTS
    ========================================================= */
 
@@ -336,12 +318,186 @@ section {
 }
 
 /* =========================================================
-   MANIFEST
+   MANIFEST — PINK TOUR POSTER
    ========================================================= */
 
-.manifest {
-  max-width: 42rem;
-  font-size: clamp(1.1rem, 4.6vw, 1.45rem);
+.manifest-poster-stage {
+  padding-block: 5.5rem;
+  overflow: visible;
+}
+
+.manifest-poster-stage > .page {
+  position: relative;
+  isolation: isolate;
+  width: min(calc(100% - 2.3rem), 52rem);
+  padding: clamp(2rem, 7vw, 4.5rem) clamp(1.45rem, 6vw, 4rem);
+  background:
+    linear-gradient(rgba(255,255,255,0.025), rgba(0,0,0,0.035)),
+    var(--poster-pink);
+  color: var(--poster-ink);
+  transform: rotate(-1.1deg);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.42),
+    inset 0 0 0 1px rgba(23,35,60,0.12);
+
+  clip-path: polygon(
+    0.7% 0.5%,
+    99.1% 0%,
+    100% 8%,
+    99.3% 19%,
+    100% 31%,
+    99.4% 48%,
+    100% 66%,
+    99.1% 83%,
+    99.8% 99.2%,
+    87% 100%,
+    71% 99.5%,
+    55% 100%,
+    38% 99.4%,
+    21% 100%,
+    0.4% 99.1%,
+    0% 83%,
+    0.6% 66%,
+    0% 47%,
+    0.5% 28%,
+    0% 12%
+  );
+}
+
+/* dunkler Dreck / Abrieb wie ein mehrfach transportiertes Tourplakat */
+.manifest-poster-stage > .page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.34;
+  background:
+    radial-gradient(circle at 6% 5%, rgba(16,23,35,0.30) 0 1px, transparent 2px),
+    radial-gradient(circle at 91% 11%, rgba(16,23,35,0.23) 0 2px, transparent 3px),
+    radial-gradient(circle at 12% 88%, rgba(16,23,35,0.23) 0 2px, transparent 3px),
+    radial-gradient(circle at 96% 79%, rgba(16,23,35,0.28) 0 1px, transparent 3px),
+    repeating-linear-gradient(
+      102deg,
+      transparent 0 31px,
+      rgba(23,35,60,0.045) 32px 33px,
+      transparent 34px 63px
+    );
+}
+
+/* Gaffa oben links */
+.manifest-poster-stage .manifest::before,
+.manifest-poster-stage .manifest::after {
+  content: "";
+  position: absolute;
+  width: clamp(5.5rem, 24vw, 9rem);
+  height: clamp(1.35rem, 5vw, 2rem);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.035) 0 2px,
+      transparent 2px 8px
+    ),
+    var(--tape);
+  opacity: 0.9;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.manifest-poster-stage .manifest::before {
+  left: -1.7rem;
+  top: -2.5rem;
+  transform: rotate(-11deg);
+}
+
+.manifest-poster-stage .manifest::after {
+  right: -1.6rem;
+  bottom: -2.4rem;
+  transform: rotate(8deg);
+}
+
+.manifest-poster-stage .manifest {
+  position: relative;
+  max-width: none;
+  margin: 0;
+  font-size: clamp(1.02rem, 4.15vw, 1.32rem);
+  line-height: 1.48;
+  font-weight: 650;
+}
+
+.manifest-poster-stage .manifest p {
+  margin: 0 0 1.35em;
+}
+
+.manifest-poster-stage .manifest p:last-child {
+  margin-bottom: 0;
+}
+
+/* gelbe Marker-Akzente statt komplett gelber Fließschrift */
+.manifest-poster-stage .manifest p:first-child,
+.manifest-poster-stage .manifest p:nth-of-type(7),
+.manifest-poster-stage .manifest p:last-child {
+  display: table;
+  padding: 0.08em 0.28em 0.12em;
+  margin-left: -0.28em;
+  background: var(--signal);
+  color: var(--poster-ink);
+  font-weight: 850;
+  transform: rotate(0.45deg);
+}
+
+.manifest-poster-stage .manifest p:nth-of-type(7) {
+  transform: rotate(-0.5deg);
+}
+
+.manifest-poster-stage .manifest p:last-child {
+  transform: rotate(0.7deg);
+}
+
+/* =========================================================
+   OPTIONAL PHOTO SLOTS
+   ========================================================= */
+
+.photo-slot[hidden],
+.desktop-portrait[hidden] {
+  display: none !important;
+}
+
+/* =========================================================
+   UTILITY FOOTER — BASIC FALLBACK
+   Feindesign folgt später mit der restlichen Utility-Zone.
+   ========================================================= */
+
+.footer-tools {
+  padding: 2.25rem 0 1.4rem;
+}
+
+.footer-utility-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  align-items: center;
+}
+
+.utility-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.utility-icon {
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.site-copyright {
+  margin: 1rem 0 0;
+  font-size: 0.72rem;
+  color: var(--muted);
 }
 
 /* =========================================================
@@ -373,6 +529,10 @@ section {
   .paint {
     filter: blur(1.8px);
   }
+
+  .manifest-poster-stage > .page {
+    transform: rotate(-1.6deg);
+  }
 }
 
 /* =========================================================
@@ -398,11 +558,18 @@ section {
     transform: rotate(-6deg);
   }
 
-  .manifest {
-    margin-left: 8%;
-  }
-
   .paint {
     opacity: 0.88;
+  }
+
+  .manifest-poster-stage > .page {
+    width: min(calc(100% - 6rem), 56rem);
+    margin-left: 7%;
+    margin-right: auto;
+    transform: rotate(-2deg);
+  }
+
+  .manifest-poster-stage .manifest {
+    font-size: clamp(1.05rem, 1.45vw, 1.4rem);
   }
 }
