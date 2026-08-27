@@ -31,17 +31,19 @@ async function loadAllFragments() {
 }
 
 function setupLegalOverlay() {
-  const link = document.getElementById("legal-link");
+  const links = [...document.querySelectorAll("[data-legal-link]")];
   const overlay = document.getElementById("legal-overlay");
   const content = document.getElementById("legal-overlay-content");
 
-  if (!link || !overlay || !content) return;
+  if (!links.length || !overlay || !content) return;
 
   const closeButtons = overlay.querySelectorAll("[data-close-legal]");
   let previousFocus = null;
 
   async function openLegal(event) {
     event.preventDefault();
+
+    const link = event.currentTarget;
     previousFocus = document.activeElement;
 
     try {
@@ -71,7 +73,7 @@ function setupLegalOverlay() {
     previousFocus?.focus?.();
   }
 
-  link.addEventListener("click", openLegal);
+  links.forEach((link) => link.addEventListener("click", openLegal));
   closeButtons.forEach((button) => button.addEventListener("click", closeLegal));
 
   document.addEventListener("keydown", (event) => {
