@@ -1,8 +1,19 @@
 /* =========================================================
-   SYSTEM CRASHER — MANIFEST POSTER V2.1
-   Segmented, torn, re-taped tour-poster look
+   SYSTEM CRASHER — MANIFEST POSTER V2.2
+   ---------------------------------------------------------
+   Ziel:
+   - pinkes Tour-Poster in mehreren schrägen Segmenten
+   - echte Papierabrisse statt gestrichelter Trennlinien
+   - kleine interne Abrisse für kürzere Leseblöcke
+   - dezente Sonnenbleiche, Wasser-/Bierflecken und Gaffa
+   - drei gelbe Kapitelanker bleiben die stärksten Signale
    ========================================================= */
 
+/* =========================================================
+   01 — POSTER-BÜHNE
+   Hält das komplette Manifest zusammen, ohne die einzelnen
+   Papiersegmente in ein starres Rechteck zu zwingen.
+   ========================================================= */
 .manifest-poster-stage {
   padding-block: 5.5rem;
   overflow: visible;
@@ -38,36 +49,82 @@
   display: none;
 }
 
+/* =========================================================
+   02 — PAPIERSEGMENTE
+   Jedes Kapitel ist ein eigenes, leicht verzogenes Stück
+   desselben pinken Posters.
+
+   Die vielen radialen Verläufe erzeugen keine Animation,
+   sondern unregelmäßige Sonnenbleiche, Wasserränder und
+   kleine Flecken. Dadurch wirkt jedes Segment anders.
+   ========================================================= */
 .manifest-segment {
   position: relative;
   padding: clamp(2rem, 7vw, 4.2rem) clamp(1.45rem, 6vw, 3.8rem);
-  background:
-    linear-gradient(rgba(255,255,255,0.025), rgba(0,0,0,0.035)),
-    var(--poster-pink);
   color: var(--poster-ink);
   box-shadow:
-    0 16px 34px rgba(0,0,0,0.36),
-    inset 0 0 0 1px rgba(23,35,60,0.10);
+    0 16px 34px rgba(0,0,0,0.34),
+    inset 0 0 0 1px rgba(23,35,60,0.08);
   overflow: visible;
 }
 
-.manifest-segment::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.35;
+/* Segment A: stärker sonnengebleicht oben/rechts, kleine Flecken. */
+.segment-a {
   background:
-    radial-gradient(circle at 7% 5%, rgba(16,23,35,0.26) 0 1px, transparent 2px),
-    radial-gradient(circle at 89% 14%, rgba(16,23,35,0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 15% 82%, rgba(16,23,35,0.16) 0 2px, transparent 3px),
-    repeating-linear-gradient(
-      104deg,
-      transparent 0 34px,
-      rgba(23,35,60,0.04) 35px 36px,
-      transparent 37px 67px
-    );
-  mix-blend-mode: multiply;
+    radial-gradient(ellipse at 78% 8%, rgba(255,255,255,0.13) 0 12%, transparent 35%),
+    radial-gradient(circle at 8% 11%, rgba(91,45,67,0.10) 0 3px, transparent 6px),
+    radial-gradient(circle at 88% 31%, rgba(91,45,67,0.08) 0 4px, transparent 7px),
+    radial-gradient(ellipse at 27% 68%, rgba(255,255,255,0.045) 0 14%, transparent 34%),
+    repeating-linear-gradient(104deg, transparent 0 34px, rgba(23,35,60,0.025) 35px 36px, transparent 37px 67px),
+    var(--poster-pink);
+
+  transform: rotate(1.45deg);
+  transform-origin: center bottom;
+  clip-path: polygon(
+    0.5% 0.6%, 99.3% 0%, 100% 17%, 99.5% 38%, 100% 64%,
+    99.2% 86%, 99.7% 99.1%, 86% 100%, 71% 99.6%, 55% 100%,
+    38% 99.5%, 20% 100%, 0.5% 99.2%, 0% 76%, 0.6% 48%, 0% 19%
+  );
+}
+
+/* Segment B: dezent ungleichmäßig ausgeblichen + zwei runde
+   Flecken, die wie getrocknete Flüssigkeit wirken. */
+.segment-b {
+  background:
+    radial-gradient(ellipse at 16% 10%, rgba(255,255,255,0.08) 0 10%, transparent 31%),
+    radial-gradient(circle at 87% 18%, transparent 0 16px, rgba(104,61,48,0.075) 17px 19px, transparent 21px),
+    radial-gradient(circle at 23% 73%, transparent 0 11px, rgba(104,61,48,0.055) 12px 14px, transparent 16px),
+    radial-gradient(ellipse at 72% 70%, rgba(255,255,255,0.045) 0 12%, transparent 32%),
+    repeating-linear-gradient(101deg, transparent 0 39px, rgba(23,35,60,0.022) 40px 41px, transparent 42px 74px),
+    var(--poster-pink);
+
+  transform: rotate(-1.65deg);
+  transform-origin: center top;
+  margin-top: -0.15rem;
+  clip-path: polygon(
+    0.4% 0.8%, 18% 0%, 36% 0.7%, 54% 0%, 74% 0.5%, 99.5% 0.2%,
+    100% 18%, 99.3% 43%, 100% 69%, 99.2% 99.1%, 82% 100%, 63% 99.4%,
+    45% 100%, 27% 99.3%, 0.5% 100%, 0% 77%, 0.7% 49%, 0% 21%
+  );
+}
+
+/* Segment C: ruhiger Schluss, nur leichter Wasser-/Bier-Ring. */
+.segment-c {
+  background:
+    radial-gradient(ellipse at 82% 12%, rgba(255,255,255,0.07) 0 10%, transparent 29%),
+    radial-gradient(circle at 12% 73%, transparent 0 15px, rgba(104,61,48,0.06) 16px 18px, transparent 20px),
+    repeating-linear-gradient(103deg, transparent 0 43px, rgba(23,35,60,0.018) 44px 45px, transparent 46px 82px),
+    var(--poster-pink);
+
+  transform: rotate(0.55deg);
+  transform-origin: center top;
+  margin-top: -0.05rem;
+  padding-bottom: clamp(2.4rem, 8vw, 4.6rem);
+  clip-path: polygon(
+    0.5% 0.7%, 21% 0%, 43% 0.6%, 65% 0%, 84% 0.4%, 99.4% 0.1%,
+    100% 26%, 99.5% 58%, 100% 98.8%, 82% 100%, 62% 99.5%, 41% 100%,
+    20% 99.4%, 0.4% 100%, 0% 72%, 0.6% 35%
+  );
 }
 
 .manifest-segment p {
@@ -80,53 +137,20 @@
   margin-bottom: 0;
 }
 
-.segment-a {
-  transform: rotate(1.45deg);
-  transform-origin: center bottom;
-  clip-path: polygon(
-    0.5% 0.6%, 99.3% 0%, 100% 17%, 99.5% 38%, 100% 64%,
-    99.2% 86%, 99.7% 99.1%, 86% 100%, 71% 99.6%, 55% 100%,
-    38% 99.5%, 20% 100%, 0.5% 99.2%, 0% 76%, 0.6% 48%, 0% 19%
-  );
-}
-
-.segment-b {
-  transform: rotate(-1.65deg);
-  transform-origin: center top;
-  margin-top: -0.25rem;
-  clip-path: polygon(
-    0.4% 0.8%, 18% 0%, 36% 0.7%, 54% 0%, 74% 0.5%, 99.5% 0.2%,
-    100% 18%, 99.3% 43%, 100% 69%, 99.2% 99.1%, 82% 100%, 63% 99.4%,
-    45% 100%, 27% 99.3%, 0.5% 100%, 0% 77%, 0.7% 49%, 0% 21%
-  );
-}
-
-.segment-c {
-  transform: rotate(0.55deg);
-  transform-origin: center top;
-  margin-top: -0.15rem;
-  padding-bottom: clamp(2.4rem, 8vw, 4.6rem);
-  clip-path: polygon(
-    0.5% 0.7%, 21% 0%, 43% 0.6%, 65% 0%, 84% 0.4%, 99.4% 0.1%,
-    100% 26%, 99.5% 58%, 100% 98.8%, 82% 100%, 62% 99.5%, 41% 100%,
-    20% 99.4%, 0.4% 100%, 0% 72%, 0.6% 35%
-  );
-}
-
-/* Gaffa: tour-used, not symmetrical */
+/* =========================================================
+   03 — GAFFA-TAPE
+   Dunkles, leicht gestreiftes Tape oben am ersten und unten
+   am letzten Segment. Bewusst asymmetrisch wie Tour-Gaffa.
+   ========================================================= */
 .segment-a::after,
 .segment-c::after {
   content: "";
   position: absolute;
-  z-index: 4;
+  z-index: 7;
   width: clamp(6rem, 25vw, 9.5rem);
   height: clamp(1.35rem, 5vw, 2rem);
   background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.035) 0 2px,
-      transparent 2px 9px
-    ),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 9px),
     var(--tape);
   opacity: 0.92;
   box-shadow: 0 3px 9px rgba(0,0,0,0.30);
@@ -145,7 +169,11 @@
   transform: rotate(8deg);
 }
 
-/* Reset legacy V1 yellow selectors. Only explicit highlights stay yellow. */
+/* =========================================================
+   04 — ALTE V1-HIGHLIGHTS ZURÜCKSETZEN
+   Verhindert, dass alte style.css-Regeln zufällig ganze
+   Absätze gelb machen.
+   ========================================================= */
 .manifest-poster-stage .manifest-v2 .manifest-segment p,
 .manifest-poster-stage .manifest-v2 .manifest-segment p:first-child,
 .manifest-poster-stage .manifest-v2 .manifest-segment p:nth-of-type(7),
@@ -157,7 +185,11 @@
   transform: none;
 }
 
-/* Yellow markers are the three chapter anchors only. */
+/* =========================================================
+   05 — GELBE KAPITELANKER
+   Nur diese drei Sätze bekommen die große gelbe Fläche.
+   Die härtere Blockschrift trennt sie zusätzlich vom Fließtext.
+   ========================================================= */
 .manifest-poster-stage .manifest-v2 .manifest-segment p.manifest-highlight {
   display: table;
   padding: 0.09em 0.3em 0.13em;
@@ -185,10 +217,13 @@
   transform: rotate(-0.65deg);
 }
 
-/* Secondary emphasis without turning whole paragraphs into yellow blocks. */
+/* =========================================================
+   06 — SEKUNDÄRE TEXTANKER
+   Schmale gelbe Kante statt großer gelber Fläche.
+   ========================================================= */
 .manifest-substatement {
   padding-left: 0.7rem !important;
-  border-left: 0.28rem solid rgba(242, 212, 0, 0.78);
+  border-left: 0.28rem solid rgba(242, 212, 0, 0.82);
   font-weight: 720;
 }
 
@@ -197,7 +232,11 @@
   font-weight: 760;
 }
 
-/* Flyer-like rhythm in the middle section. */
+/* =========================================================
+   07 — FLYER-RHYTHMUS
+   Einzelne Zeilen springen minimal nach rechts. Dadurch wirkt
+   der lange Mittelteil weniger wie ein normaler Textblock.
+   ========================================================= */
 .manifest-life-lines span,
 .manifest-question-lines span {
   display: block;
@@ -215,15 +254,18 @@
 .manifest-question-lines span:nth-child(4) { margin-left: 0.25rem; }
 
 /* =========================================================
-   RIPS / TEARS
-   Narrower, tapered gaps so they read as torn paper, not black bars.
-   ========================================================= */
+   08 — GROSSE PAPIERABRISSE ZWISCHEN DEN DREI KAPITELN
+   ---------------------------------------------------------
+   ::before = schwarzer offene Spalt mit unregelmäßiger Form.
+   ::after  = einzelne helle Fasern direkt an der Abrisskante.
 
+   WICHTIG: keine repeating-linear-gradient-Striche mehr.
+   ========================================================= */
 .manifest-rip {
   position: relative;
   z-index: 5;
-  height: clamp(2.6rem, 8vw, 4.4rem);
-  margin: clamp(-1.15rem, -2vw, -0.35rem) 0;
+  height: clamp(3rem, 9vw, 4.8rem);
+  margin: clamp(-0.9rem, -1.5vw, -0.25rem) 0;
   pointer-events: none;
 }
 
@@ -234,69 +276,149 @@
   pointer-events: none;
 }
 
+/* Der offene dunkle Papierbruch. */
 .manifest-rip::before {
+  top: 10%;
+  height: 76%;
   background: var(--bg);
-  filter: drop-shadow(0 5px 8px rgba(0,0,0,0.30));
+  filter: drop-shadow(0 5px 7px rgba(0,0,0,0.24));
 }
 
+/* Papierfasern: kleine unterschiedlich lange helle Fäden.
+   Mehrere schmale Gradients überlagern sich, sodass keine
+   regelmäßige Perforationslinie entsteht. */
 .manifest-rip::after {
-  height: 4px;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(231,74,155,0.95) 0 11px,
-    rgba(247,165,207,0.65) 11px 14px,
-    transparent 14px 20px
-  );
-  opacity: 0.75;
+  top: 42%;
+  height: 18px;
+  opacity: 0.55;
+  background:
+    linear-gradient(93deg, transparent 0 7%, rgba(255,238,244,0.42) 7.2% 7.5%, transparent 7.8% 18%),
+    linear-gradient(87deg, transparent 0 21%, rgba(255,238,244,0.35) 21.1% 21.45%, transparent 21.8% 35%),
+    linear-gradient(95deg, transparent 0 39%, rgba(255,238,244,0.48) 39.2% 39.5%, transparent 39.9% 53%),
+    linear-gradient(84deg, transparent 0 57%, rgba(255,238,244,0.31) 57.1% 57.38%, transparent 57.8% 72%),
+    linear-gradient(91deg, transparent 0 76%, rgba(255,238,244,0.40) 76.2% 76.52%, transparent 76.9% 88%),
+    linear-gradient(86deg, transparent 0 92%, rgba(255,238,244,0.34) 92.1% 92.45%, transparent 92.8% 100%);
 }
 
+/* Riss 1 beginnt links breit und läuft nach rechts dünner aus. */
 .rip-left::before {
-  left: -3%;
-  top: 13%;
-  width: 92%;
-  height: 72%;
+  left: -4%;
+  width: 96%;
   clip-path: polygon(
-    0 38%, 8% 20%, 17% 36%, 27% 24%, 38% 45%, 49% 33%,
-    59% 50%, 70% 39%, 81% 48%, 91% 44%, 100% 48%,
-    100% 58%, 91% 59%, 81% 66%, 70% 59%, 59% 72%, 48% 62%,
-    37% 76%, 27% 64%, 17% 79%, 8% 63%, 0 69%
+    0 26%, 7% 8%, 16% 31%, 25% 15%, 36% 39%, 47% 24%,
+    59% 43%, 70% 31%, 81% 44%, 91% 39%, 100% 46%,
+    100% 55%, 91% 58%, 81% 64%, 70% 57%, 59% 70%, 47% 61%,
+    36% 74%, 25% 63%, 16% 78%, 7% 61%, 0 72%
   );
-  transform: rotate(-1deg);
+  transform: rotate(-0.8deg);
 }
 
 .rip-left::after {
-  left: 2%;
-  top: 51%;
-  width: 61%;
-  transform: rotate(-1.2deg);
+  left: 0;
+  width: 76%;
+  transform: rotate(-1deg);
 }
 
+/* Riss 2 beginnt rechts breit und läuft nach links dünner aus. */
 .rip-right::before {
-  right: -3%;
-  top: 13%;
-  width: 91%;
-  height: 72%;
+  right: -4%;
+  width: 95%;
   clip-path: polygon(
-    0 47%, 10% 43%, 21% 53%, 32% 37%, 43% 57%, 54% 35%,
-    65% 52%, 76% 32%, 86% 49%, 94% 24%, 100% 39%,
-    100% 67%, 94% 61%, 86% 77%, 76% 61%, 65% 72%, 54% 59%,
-    43% 71%, 32% 62%, 21% 69%, 10% 61%, 0 65%
+    0 45%, 10% 40%, 21% 50%, 32% 35%, 43% 55%, 54% 33%,
+    65% 51%, 76% 29%, 86% 47%, 94% 19%, 100% 34%,
+    100% 70%, 94% 60%, 86% 76%, 76% 60%, 65% 72%, 54% 58%,
+    43% 71%, 32% 61%, 21% 68%, 10% 60%, 0 64%
   );
-  transform: rotate(0.9deg);
+  transform: rotate(0.8deg);
 }
 
 .rip-right::after {
-  right: 1%;
-  top: 50%;
-  width: 58%;
-  transform: rotate(1.1deg);
+  right: 0;
+  width: 73%;
+  transform: rotate(1deg);
 }
 
 /* =========================================================
-   AUDIO NOTE / POST-IT
-   Hidden until an audio source exists.
+   09 — KLEINE INTERNE ABRISSE
+   Diese unterteilen lange Kapitel, ohne daraus ein komplett
+   neues Poster zu machen. Danach kippt der nächste Textblock
+   minimal in die Gegenrichtung.
    ========================================================= */
+.manifest-micro-rip {
+  position: relative;
+  z-index: 4;
+  height: clamp(1.6rem, 5vw, 2.5rem);
+  margin: 0.15rem 0 1.35rem;
+  pointer-events: none;
+}
 
+/* Schwarzer, sehr schmaler Einriss. */
+.manifest-micro-rip::before {
+  content: "";
+  position: absolute;
+  top: 37%;
+  height: 9px;
+  background: rgba(11,11,11,0.92);
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.16));
+}
+
+/* Einige einzelne Papierfäden am kleinen Abriss. */
+.manifest-micro-rip::after {
+  content: "";
+  position: absolute;
+  top: calc(37% + 6px);
+  height: 11px;
+  opacity: 0.45;
+  background:
+    linear-gradient(92deg, transparent 0 16%, rgba(255,240,245,0.45) 16.2% 16.7%, transparent 17% 41%),
+    linear-gradient(85deg, transparent 0 46%, rgba(255,240,245,0.34) 46.1% 46.5%, transparent 46.8% 69%),
+    linear-gradient(94deg, transparent 0 74%, rgba(255,240,245,0.42) 74.2% 74.6%, transparent 74.9% 100%);
+}
+
+.micro-rip-left::before {
+  left: -2%;
+  width: 76%;
+  clip-path: polygon(0 30%, 13% 6%, 27% 47%, 41% 15%, 56% 58%, 70% 29%, 84% 63%, 100% 42%, 100% 71%, 84% 78%, 70% 63%, 56% 84%, 41% 65%, 27% 86%, 13% 61%, 0 74%);
+  transform: rotate(-0.7deg);
+}
+
+.micro-rip-left::after {
+  left: 2%;
+  width: 58%;
+}
+
+.micro-rip-right::before {
+  right: -2%;
+  width: 78%;
+  clip-path: polygon(0 43%, 14% 34%, 28% 55%, 43% 26%, 58% 62%, 72% 31%, 86% 55%, 100% 19%, 100% 73%, 86% 66%, 72% 82%, 58% 64%, 43% 80%, 28% 63%, 14% 74%, 0 69%);
+  transform: rotate(0.65deg);
+}
+
+.micro-rip-right::after {
+  right: 2%;
+  width: 61%;
+}
+
+/* Der Text nach einem kleinen Riss bekommt eine kaum merkliche
+   Gegenneigung. So fühlt sich das Papier lokal verzogen an. */
+.manifest-subpanel {
+  position: relative;
+  transform-origin: center top;
+}
+
+.subpanel-right {
+  transform: rotate(-0.28deg) translateX(0.15rem);
+}
+
+.subpanel-left {
+  transform: rotate(0.32deg) translateX(-0.08rem);
+}
+
+/* =========================================================
+   10 — AUDIO-POST-IT
+   Noch verborgen. Sobald später eine Audiodatei existiert,
+   kann JS [hidden] entfernen. Keine Sprachwahl im Sticker.
+   ========================================================= */
 .audio-note[hidden] {
   display: none !important;
 }
@@ -320,11 +442,7 @@
   left: 24%;
   top: -0.58rem;
   background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.04) 0 2px,
-      transparent 2px 8px
-    ),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 8px),
     var(--tape);
   transform: rotate(4deg);
   opacity: 0.94;
@@ -372,6 +490,10 @@
   padding-top: clamp(6rem, 20vw, 8rem);
 }
 
+/* =========================================================
+   11 — TABLET
+   Etwas stärkere Segment-Neigung, weil mehr Raum vorhanden ist.
+   ========================================================= */
 @media (min-width: 768px) {
   .manifest-poster-stage > .page.manifest-poster-v2 {
     width: min(calc(100% - 4rem), 58rem);
@@ -387,6 +509,11 @@
   }
 }
 
+/* =========================================================
+   12 — DESKTOP
+   Das Poster bleibt links kompakt, damit rechts später das
+   feste Signature-Portrait Platz bekommt.
+   ========================================================= */
 @media (min-width: 1024px) {
   .manifest-poster-stage > .page.manifest-poster-v2 {
     width: min(calc(100% - 6rem), 60rem);
@@ -403,6 +530,19 @@
   .segment-c { transform: rotate(0.9deg); }
 
   .manifest-rip {
-    height: 4rem;
+    height: 4.5rem;
+  }
+}
+
+/* =========================================================
+   13 — REDUCED MOTION
+   Aktuell gibt es keine Animation. Falls später welche dazu
+   kommen, bleiben die Grundformen hier dennoch ruhig.
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .manifest-segment,
+  .manifest-subpanel,
+  .manifest-highlight {
+    transition: none !important;
   }
 }
