@@ -1,0 +1,25 @@
+/* Temporary hard override for the three manifest chapter markers. */
+.manifest-poster-stage .manifest-v2 .manifest-segment p.manifest-highlight {
+  display: table !important;
+  background: var(--signal) !important;
+  color: var(--poster-ink) !important;
+  padding: 0.09em 0.3em 0.13em !important;
+  margin-left: -0.3em !important;
+  font-family: "Arial Black", "Franklin Gothic Heavy", Impact, Arial, sans-serif !important;
+  font-weight: 900 !important;
+  line-height: 1.16 !important;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.manifest-poster-stage .manifest-v2 .segment-a p.manifest-highlight {
+  transform: rotate(-0.45deg) !important;
+}
+
+.manifest-poster-stage .manifest-v2 .segment-b p.manifest-highlight {
+  transform: rotate(0.55deg) !important;
+}
+
+.manifest-poster-stage .manifest-v2 .segment-c p.manifest-final {
+  transform: rotate(-0.65deg) !important;
+}
