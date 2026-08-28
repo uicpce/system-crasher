@@ -158,7 +158,7 @@
 }
 
 /* Yellow markers are the three chapter anchors only. */
-.manifest-poster-stage .manifest-v2 .manifest-highlight {
+.manifest-poster-stage .manifest-v2 .manifest-segment p.manifest-highlight {
   display: table;
   padding: 0.09em 0.3em 0.13em;
   margin-left: -0.3em;
@@ -172,15 +172,15 @@
   -webkit-box-decoration-break: clone;
 }
 
-.segment-a .manifest-highlight {
+.manifest-poster-stage .manifest-v2 .segment-a p.manifest-highlight {
   transform: rotate(-0.45deg);
 }
 
-.segment-b .manifest-highlight {
+.manifest-poster-stage .manifest-v2 .segment-b p.manifest-highlight {
   transform: rotate(0.55deg);
 }
 
-.manifest-poster-stage .manifest-v2 .manifest-final {
+.manifest-poster-stage .manifest-v2 .segment-c p.manifest-final {
   font-size: 1.08em;
   transform: rotate(-0.65deg);
 }
@@ -239,7 +239,6 @@
   filter: drop-shadow(0 5px 8px rgba(0,0,0,0.30));
 }
 
-/* thin exposed paper fibres along one edge */
 .manifest-rip::after {
   height: 4px;
   background: repeating-linear-gradient(
