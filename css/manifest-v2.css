@@ -1,5 +1,5 @@
 /* =========================================================
-   SYSTEM CRASHER — MANIFEST POSTER V2
+   SYSTEM CRASHER — MANIFEST POSTER V2.1
    Segmented, torn, re-taped tour-poster look
    ========================================================= */
 
@@ -93,7 +93,7 @@
 .segment-b {
   transform: rotate(-1.65deg);
   transform-origin: center top;
-  margin-top: -0.8rem;
+  margin-top: -0.25rem;
   clip-path: polygon(
     0.4% 0.8%, 18% 0%, 36% 0.7%, 54% 0%, 74% 0.5%, 99.5% 0.2%,
     100% 18%, 99.3% 43%, 100% 69%, 99.2% 99.1%, 82% 100%, 63% 99.4%,
@@ -104,7 +104,7 @@
 .segment-c {
   transform: rotate(0.55deg);
   transform-origin: center top;
-  margin-top: -0.75rem;
+  margin-top: -0.15rem;
   padding-bottom: clamp(2.4rem, 8vw, 4.6rem);
   clip-path: polygon(
     0.5% 0.7%, 21% 0%, 43% 0.6%, 65% 0%, 84% 0.4%, 99.4% 0.1%,
@@ -145,15 +145,29 @@
   transform: rotate(8deg);
 }
 
-/* Yellow markers become visual chapter anchors */
-.manifest-v2 .manifest-highlight {
+/* Reset legacy V1 yellow selectors. Only explicit highlights stay yellow. */
+.manifest-poster-stage .manifest-v2 .manifest-segment p,
+.manifest-poster-stage .manifest-v2 .manifest-segment p:first-child,
+.manifest-poster-stage .manifest-v2 .manifest-segment p:nth-of-type(7),
+.manifest-poster-stage .manifest-v2 .manifest-segment p:last-child {
+  background: transparent;
+  color: var(--poster-ink);
+  padding: 0;
+  margin-left: 0;
+  transform: none;
+}
+
+/* Yellow markers are the three chapter anchors only. */
+.manifest-poster-stage .manifest-v2 .manifest-highlight {
   display: table;
   padding: 0.09em 0.3em 0.13em;
   margin-left: -0.3em;
   background: var(--signal);
   color: var(--poster-ink);
-  font-weight: 850;
-  line-height: 1.22;
+  font-family: "Arial Black", "Franklin Gothic Heavy", Impact, Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.16;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -166,53 +180,117 @@
   transform: rotate(0.55deg);
 }
 
-.manifest-final {
-  font-size: 1.06em;
+.manifest-poster-stage .manifest-v2 .manifest-final {
+  font-size: 1.08em;
   transform: rotate(-0.65deg);
 }
 
+/* Secondary emphasis without turning whole paragraphs into yellow blocks. */
+.manifest-substatement {
+  padding-left: 0.7rem !important;
+  border-left: 0.28rem solid rgba(242, 212, 0, 0.78);
+  font-weight: 720;
+}
+
+.manifest-closing-lead {
+  max-width: 29ch;
+  font-weight: 760;
+}
+
+/* Flyer-like rhythm in the middle section. */
+.manifest-life-lines span,
+.manifest-question-lines span {
+  display: block;
+}
+
+.manifest-life-lines span:nth-child(2) { margin-left: 0.35rem; }
+.manifest-life-lines span:nth-child(3) { margin-left: 0.9rem; }
+.manifest-life-lines span:nth-child(4) { margin-left: 0.45rem; }
+.manifest-life-lines span:nth-child(5) { margin-left: 1.1rem; }
+.manifest-life-lines span:nth-child(6) { margin-left: 0.7rem; }
+.manifest-life-lines span:nth-child(7) { margin-left: 0.2rem; }
+
+.manifest-question-lines span:nth-child(2) { margin-left: 0.45rem; }
+.manifest-question-lines span:nth-child(3) { margin-left: 0.9rem; }
+.manifest-question-lines span:nth-child(4) { margin-left: 0.25rem; }
+
 /* =========================================================
    RIPS / TEARS
-   These are dark gaps with a pink paper edge.
+   Narrower, tapered gaps so they read as torn paper, not black bars.
    ========================================================= */
 
 .manifest-rip {
   position: relative;
   z-index: 5;
-  height: clamp(2.2rem, 7vw, 3.7rem);
-  margin: clamp(-1.2rem, -3vw, -0.5rem) 0;
+  height: clamp(2.6rem, 8vw, 4.4rem);
+  margin: clamp(-1.15rem, -2vw, -0.35rem) 0;
+  pointer-events: none;
+}
+
+.manifest-rip::before,
+.manifest-rip::after {
+  content: "";
+  position: absolute;
   pointer-events: none;
 }
 
 .manifest-rip::before {
-  content: "";
-  position: absolute;
-  inset: 16% -2%;
   background: var(--bg);
-  box-shadow:
-    0 -2px 0 rgba(231,74,155,0.92),
-    0 2px 0 rgba(231,74,155,0.68),
-    0 7px 12px rgba(0,0,0,0.26);
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,0.30));
+}
+
+/* thin exposed paper fibres along one edge */
+.manifest-rip::after {
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(231,74,155,0.95) 0 11px,
+    rgba(247,165,207,0.65) 11px 14px,
+    transparent 14px 20px
+  );
+  opacity: 0.75;
 }
 
 .rip-left::before {
+  left: -3%;
+  top: 13%;
+  width: 92%;
+  height: 72%;
   clip-path: polygon(
-    0 47%, 7% 27%, 15% 52%, 23% 30%, 31% 59%, 40% 38%,
-    49% 62%, 58% 43%, 67% 58%, 76% 47%, 88% 53%, 100% 49%,
-    100% 69%, 89% 66%, 78% 74%, 67% 67%, 57% 78%, 47% 69%,
-    36% 82%, 26% 72%, 16% 84%, 8% 69%, 0 76%
+    0 38%, 8% 20%, 17% 36%, 27% 24%, 38% 45%, 49% 33%,
+    59% 50%, 70% 39%, 81% 48%, 91% 44%, 100% 48%,
+    100% 58%, 91% 59%, 81% 66%, 70% 59%, 59% 72%, 48% 62%,
+    37% 76%, 27% 64%, 17% 79%, 8% 63%, 0 69%
   );
-  transform: rotate(-1.2deg) translateX(-7%);
+  transform: rotate(-1deg);
+}
+
+.rip-left::after {
+  left: 2%;
+  top: 51%;
+  width: 61%;
+  transform: rotate(-1.2deg);
 }
 
 .rip-right::before {
+  right: -3%;
+  top: 13%;
+  width: 91%;
+  height: 72%;
   clip-path: polygon(
-    0 50%, 11% 45%, 21% 56%, 31% 40%, 41% 61%, 52% 37%,
-    62% 58%, 72% 35%, 82% 54%, 91% 28%, 100% 48%,
-    100% 76%, 92% 68%, 83% 84%, 73% 66%, 63% 80%, 53% 64%,
-    42% 78%, 31% 67%, 21% 75%, 11% 66%, 0 73%
+    0 47%, 10% 43%, 21% 53%, 32% 37%, 43% 57%, 54% 35%,
+    65% 52%, 76% 32%, 86% 49%, 94% 24%, 100% 39%,
+    100% 67%, 94% 61%, 86% 77%, 76% 61%, 65% 72%, 54% 59%,
+    43% 71%, 32% 62%, 21% 69%, 10% 61%, 0 65%
   );
-  transform: rotate(1.1deg) translateX(7%);
+  transform: rotate(0.9deg);
+}
+
+.rip-right::after {
+  right: 1%;
+  top: 50%;
+  width: 58%;
+  transform: rotate(1.1deg);
 }
 
 /* =========================================================
@@ -278,8 +356,9 @@
 
 .audio-note-copy strong {
   display: inline;
+  font-family: "Arial Black", "Franklin Gothic Heavy", Impact, Arial, sans-serif;
   font-size: 0.86rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .audio-note-copy small {
@@ -290,7 +369,6 @@
   opacity: 0.74;
 }
 
-/* Give the first paragraph enough room if the note becomes active */
 .segment-a:has(.audio-note:not([hidden])) {
   padding-top: clamp(6rem, 20vw, 8rem);
 }
@@ -300,17 +378,9 @@
     width: min(calc(100% - 4rem), 58rem);
   }
 
-  .segment-a {
-    transform: rotate(1.8deg);
-  }
-
-  .segment-b {
-    transform: rotate(-2deg);
-  }
-
-  .segment-c {
-    transform: rotate(0.75deg);
-  }
+  .segment-a { transform: rotate(1.8deg); }
+  .segment-b { transform: rotate(-2deg); }
+  .segment-c { transform: rotate(0.75deg); }
 
   .audio-note {
     width: 12.5rem;
@@ -329,19 +399,11 @@
     font-size: clamp(1.04rem, 1.35vw, 1.36rem);
   }
 
-  .segment-a {
-    transform: rotate(2.15deg);
-  }
-
-  .segment-b {
-    transform: rotate(-2.35deg);
-  }
-
-  .segment-c {
-    transform: rotate(0.9deg);
-  }
+  .segment-a { transform: rotate(2.15deg); }
+  .segment-b { transform: rotate(-2.35deg); }
+  .segment-c { transform: rotate(0.9deg); }
 
   .manifest-rip {
-    height: 3.6rem;
+    height: 4rem;
   }
 }
