@@ -1,0 +1,104 @@
+/* =========================================================
+   SYSTEM CRASHER — DARK CLUB BRICK WALL
+   ---------------------------------------------------------
+   Ganze Seite: alte, fast schwarze Klinkerwand mit unruhigem
+   Mörtel, leichten Abplatzungen und fleckiger Patina.
+   Rein CSS, damit die Seite leicht, skalierbar und textbasiert
+   bleibt. Keine externe Bilddatei nötig.
+   ========================================================= */
+
+:root {
+  --brick-base: #101010;
+  --brick-mid: #171515;
+  --brick-dark: #080808;
+  --mortar: rgba(104, 94, 87, 0.20);
+  --mortar-dark: rgba(0, 0, 0, 0.34);
+  --wall-scuff: rgba(190, 171, 151, 0.07);
+  --wall-chip: rgba(210, 194, 170, 0.09);
+}
+
+body {
+  position: relative;
+  background-color: var(--brick-base);
+  background-image:
+    /* fleckige Wandpatina */
+    radial-gradient(ellipse at 12% 14%, rgba(255,255,255,0.025) 0 4%, transparent 15%),
+    radial-gradient(ellipse at 78% 23%, rgba(255,255,255,0.018) 0 5%, transparent 17%),
+    radial-gradient(ellipse at 31% 68%, rgba(0,0,0,0.18) 0 7%, transparent 19%),
+    radial-gradient(ellipse at 88% 81%, rgba(255,255,255,0.022) 0 3%, transparent 14%),
+
+    /* vertikale Stoßfugen, versetzt über zwei Steinreihen */
+    linear-gradient(90deg, transparent 0 48%, var(--mortar-dark) 48% 50%, transparent 50% 100%),
+    linear-gradient(90deg, transparent 0 23%, var(--mortar) 23% 24%, transparent 24% 73%, var(--mortar) 73% 74%, transparent 74% 100%),
+
+    /* horizontale Mörtelfugen */
+    linear-gradient(0deg, transparent 0 46%, var(--mortar) 46% 49%, transparent 49% 96%, var(--mortar-dark) 96% 100%),
+
+    /* Klinker-Grundton */
+    linear-gradient(180deg, var(--brick-mid), var(--brick-dark));
+
+  background-size:
+    720px 520px,
+    640px 480px,
+    800px 620px,
+    560px 420px,
+    168px 84px,
+    336px 168px,
+    168px 84px,
+    168px 84px;
+  background-position:
+    0 0,
+    120px 40px,
+    -80px 180px,
+    200px 280px,
+    0 0,
+    0 84px,
+    0 0,
+    0 0;
+  background-attachment: fixed;
+}
+
+/* Unregelmäßige Abplatzungen und matte Scheuerstellen über der Wand. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 7% 18%, transparent 0 18px, var(--wall-chip) 19px 22px, transparent 23px),
+    radial-gradient(circle at 91% 12%, transparent 0 13px, var(--wall-chip) 14px 17px, transparent 18px),
+    radial-gradient(ellipse at 16% 53%, var(--wall-scuff) 0 18px, transparent 44px),
+    radial-gradient(ellipse at 83% 61%, var(--wall-scuff) 0 24px, transparent 62px),
+    radial-gradient(circle at 34% 89%, transparent 0 10px, rgba(211,194,168,0.055) 11px 14px, transparent 15px),
+    radial-gradient(ellipse at 68% 36%, rgba(0,0,0,0.20) 0 42px, transparent 98px);
+  mix-blend-mode: screen;
+  opacity: 0.95;
+}
+
+/* Dunkle Randvignette wie in einem schlecht beleuchteten Clubraum. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,0.18) 70%, rgba(0,0,0,0.48) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.12), transparent 15%, transparent 83%, rgba(0,0,0,0.22));
+}
+
+/* Inhalt bleibt vor der Wand. */
+.site-shell,
+.site-footer,
+.legal-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+/* Auf kleinen Geräten kein fixed background, damit Scrollen flüssig bleibt. */
+@media (max-width: 900px) {
+  body {
+    background-attachment: scroll;
+  }
+}
