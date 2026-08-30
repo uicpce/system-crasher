@@ -1,64 +1,77 @@
 /* =========================================================
-   SYSTEM CRASHER — DARK CLUB BRICK WALL
+   SYSTEM CRASHER — SMALL DISTRESSED CLUB CLINKER V2
    ---------------------------------------------------------
-   Ganze Seite: alte, fast schwarze Klinkerwand mit unruhigem
-   Mörtel, leichten Abplatzungen und fleckiger Patina.
-   Rein CSS, damit die Seite leicht, skalierbar und textbasiert
-   bleibt. Keine externe Bilddatei nötig.
+   Kleine, längliche, nahezu schwarze Klinker statt großer
+   Backsteinfelder. Unruhiger Mörtel, matte Scheuerstellen und
+   wenige kleine Abplatzungen. Der Hintergrund bleibt leise.
    ========================================================= */
 
 :root {
-  --brick-base: #101010;
-  --brick-mid: #171515;
-  --brick-dark: #080808;
-  --mortar: rgba(104, 94, 87, 0.20);
-  --mortar-dark: rgba(0, 0, 0, 0.34);
-  --wall-scuff: rgba(190, 171, 151, 0.07);
-  --wall-chip: rgba(210, 194, 170, 0.09);
+  --brick-base: #0c0c0c;
+  --brick-face-a: #151313;
+  --brick-face-b: #101010;
+  --brick-edge: rgba(255,255,255,.018);
+  --mortar: rgba(88, 80, 74, .20);
+  --mortar-dark: rgba(0, 0, 0, .48);
+  --wall-chip: rgba(205, 186, 162, .09);
+  --wall-scuff: rgba(190, 170, 150, .045);
+  --brick-w: 84px;
+  --brick-h: 29px;
+  --joint: 3px;
 }
 
 body {
   position: relative;
   background-color: var(--brick-base);
   background-image:
-    /* fleckige Wandpatina */
-    radial-gradient(ellipse at 12% 14%, rgba(255,255,255,0.025) 0 4%, transparent 15%),
-    radial-gradient(ellipse at 78% 23%, rgba(255,255,255,0.018) 0 5%, transparent 17%),
-    radial-gradient(ellipse at 31% 68%, rgba(0,0,0,0.18) 0 7%, transparent 19%),
-    radial-gradient(ellipse at 88% 81%, rgba(255,255,255,0.022) 0 3%, transparent 14%),
+    /* sehr schwache Wandpatina */
+    radial-gradient(ellipse at 16% 18%, rgba(255,255,255,.018) 0 3%, transparent 13%),
+    radial-gradient(ellipse at 82% 61%, rgba(255,255,255,.014) 0 2%, transparent 12%),
+    radial-gradient(ellipse at 34% 78%, rgba(0,0,0,.18) 0 5%, transparent 17%),
 
-    /* vertikale Stoßfugen, versetzt über zwei Steinreihen */
-    linear-gradient(90deg, transparent 0 48%, var(--mortar-dark) 48% 50%, transparent 50% 100%),
-    linear-gradient(90deg, transparent 0 23%, var(--mortar) 23% 24%, transparent 24% 73%, var(--mortar) 73% 74%, transparent 74% 100%),
+    /* obere Hälfte jeder Reihe: Stoßfuge mittig */
+    linear-gradient(90deg,
+      transparent 0 calc(50% - 1.5px),
+      var(--mortar-dark) calc(50% - 1.5px) calc(50% + 1.5px),
+      transparent calc(50% + 1.5px) 100%),
 
-    /* horizontale Mörtelfugen */
-    linear-gradient(0deg, transparent 0 46%, var(--mortar) 46% 49%, transparent 49% 96%, var(--mortar-dark) 96% 100%),
+    /* zweite Reihenhälfte um halben Stein versetzt */
+    linear-gradient(90deg,
+      var(--mortar-dark) 0 3px,
+      transparent 3px calc(100% - 3px),
+      var(--mortar-dark) calc(100% - 3px) 100%),
 
-    /* Klinker-Grundton */
-    linear-gradient(180deg, var(--brick-mid), var(--brick-dark));
+    /* horizontale Fugen */
+    linear-gradient(180deg,
+      var(--brick-edge) 0 1px,
+      transparent 1px calc(100% - var(--joint)),
+      var(--mortar) calc(100% - var(--joint)) 100%),
+
+    /* subtile Klinkerflächen */
+    linear-gradient(180deg, var(--brick-face-a), var(--brick-face-b));
 
   background-size:
-    720px 520px,
-    640px 480px,
-    800px 620px,
-    560px 420px,
-    168px 84px,
-    336px 168px,
-    168px 84px,
-    168px 84px;
+    520px 420px,
+    610px 530px,
+    730px 610px,
+    var(--brick-w) calc(var(--brick-h) * 2),
+    var(--brick-w) calc(var(--brick-h) * 2),
+    var(--brick-w) var(--brick-h),
+    var(--brick-w) var(--brick-h);
+
   background-position:
     0 0,
-    120px 40px,
-    -80px 180px,
-    200px 280px,
+    90px 130px,
+    -120px 210px,
     0 0,
-    0 84px,
+    calc(var(--brick-w) / 2) var(--brick-h),
     0 0,
     0 0;
+
   background-attachment: fixed;
 }
 
-/* Unregelmäßige Abplatzungen und matte Scheuerstellen über der Wand. */
+/* Kleine, unregelmäßige Abplatzungen. Keine großen Kreise mehr. */
 body::before {
   content: "";
   position: fixed;
@@ -66,17 +79,16 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(circle at 7% 18%, transparent 0 18px, var(--wall-chip) 19px 22px, transparent 23px),
-    radial-gradient(circle at 91% 12%, transparent 0 13px, var(--wall-chip) 14px 17px, transparent 18px),
-    radial-gradient(ellipse at 16% 53%, var(--wall-scuff) 0 18px, transparent 44px),
-    radial-gradient(ellipse at 83% 61%, var(--wall-scuff) 0 24px, transparent 62px),
-    radial-gradient(circle at 34% 89%, transparent 0 10px, rgba(211,194,168,0.055) 11px 14px, transparent 15px),
-    radial-gradient(ellipse at 68% 36%, rgba(0,0,0,0.20) 0 42px, transparent 98px);
-  mix-blend-mode: screen;
-  opacity: 0.95;
+    radial-gradient(ellipse at 7% 19%, var(--wall-chip) 0 4px, transparent 9px),
+    radial-gradient(ellipse at 91% 13%, var(--wall-chip) 0 3px, transparent 8px),
+    radial-gradient(ellipse at 14% 54%, var(--wall-scuff) 0 11px, transparent 31px),
+    radial-gradient(ellipse at 84% 64%, var(--wall-scuff) 0 14px, transparent 38px),
+    radial-gradient(ellipse at 36% 88%, rgba(210,192,168,.06) 0 3px, transparent 8px),
+    linear-gradient(112deg, transparent 0 45%, rgba(230,212,190,.025) 46% 47%, transparent 48% 100%);
+  opacity: .85;
 }
 
-/* Dunkle Randvignette wie in einem schlecht beleuchteten Clubraum. */
+/* Clubraum-Vignette bleibt subtil, Poster hat Vorrang. */
 body::after {
   content: "";
   position: fixed;
@@ -84,11 +96,10 @@ body::after {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,0.18) 70%, rgba(0,0,0,0.48) 100%),
-    linear-gradient(180deg, rgba(0,0,0,0.12), transparent 15%, transparent 83%, rgba(0,0,0,0.22));
+    radial-gradient(ellipse at center, transparent 48%, rgba(0,0,0,.15) 74%, rgba(0,0,0,.38) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.08), transparent 17%, transparent 84%, rgba(0,0,0,.18));
 }
 
-/* Inhalt bleibt vor der Wand. */
 .site-shell,
 .site-footer,
 .legal-overlay {
@@ -96,9 +107,15 @@ body::after {
   z-index: 1;
 }
 
-/* Auf kleinen Geräten kein fixed background, damit Scrollen flüssig bleibt. */
 @media (max-width: 900px) {
   body {
     background-attachment: scroll;
+  }
+}
+
+@media (min-width: 901px) {
+  :root {
+    --brick-w: 92px;
+    --brick-h: 31px;
   }
 }
