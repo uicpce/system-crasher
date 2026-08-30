@@ -1,0 +1,94 @@
+/* =========================================================
+   SYSTEM CRASHER — BRICK WALL V2.6 MATERIAL PASS
+   ---------------------------------------------------------
+   Kleine dunkle Klinker bleiben, aber die Wand soll weniger
+   wie ein mathematisches Raster wirken. Diese Datei lädt nach
+   brick-wall.css und legt Materialunruhe darüber.
+   ========================================================= */
+
+:root {
+  --brick-w: 78px;
+  --brick-h: 27px;
+}
+
+body {
+  background-image:
+    /* kleine matte Flecken / Ruß / alte Feuchtigkeit */
+    radial-gradient(ellipse at 12% 17%, rgba(205,190,172,.025) 0 2%, transparent 10%),
+    radial-gradient(ellipse at 77% 24%, rgba(255,255,255,.018) 0 1.5%, transparent 9%),
+    radial-gradient(ellipse at 31% 63%, rgba(0,0,0,.24) 0 5%, transparent 16%),
+    radial-gradient(ellipse at 89% 81%, rgba(198,181,161,.018) 0 2%, transparent 10%),
+
+    /* schwache unregelmäßige Oberflächenkörnung */
+    radial-gradient(circle at 23% 41%, rgba(255,255,255,.025) 0 .6px, transparent .9px),
+    radial-gradient(circle at 71% 68%, rgba(0,0,0,.18) 0 .7px, transparent 1px),
+
+    /* Stoßfugen deutlich schwächer als zuvor */
+    linear-gradient(90deg,
+      transparent 0 calc(50% - 1px),
+      rgba(0,0,0,.34) calc(50% - 1px) calc(50% + 1px),
+      transparent calc(50% + 1px) 100%),
+
+    linear-gradient(90deg,
+      rgba(0,0,0,.30) 0 2px,
+      transparent 2px calc(100% - 2px),
+      rgba(0,0,0,.30) calc(100% - 2px) 100%),
+
+    /* horizontale Mörtelfugen leicht variieren */
+    linear-gradient(180deg,
+      rgba(255,255,255,.014) 0 1px,
+      transparent 1px calc(100% - 3px),
+      rgba(83,75,70,.18) calc(100% - 3px) calc(100% - 1px),
+      rgba(0,0,0,.24) calc(100% - 1px) 100%),
+
+    /* leichte Tonabweichung innerhalb der kleinen Klinker */
+    linear-gradient(165deg, #151313 0 38%, #111010 58%, #0e0e0e 100%);
+
+  background-size:
+    430px 360px,
+    510px 440px,
+    690px 560px,
+    470px 390px,
+    21px 23px,
+    29px 31px,
+    var(--brick-w) calc(var(--brick-h) * 2),
+    var(--brick-w) calc(var(--brick-h) * 2),
+    var(--brick-w) var(--brick-h),
+    var(--brick-w) var(--brick-h);
+
+  background-position:
+    0 0,
+    83px 41px,
+    -110px 170px,
+    150px 210px,
+    3px 7px,
+    11px 2px,
+    0 0,
+    calc(var(--brick-w) / 2) var(--brick-h),
+    0 0,
+    0 0;
+}
+
+/* kleine Abplatzungen / Mörtelausbrüche, bewusst nicht kreisförmig dominant */
+body::before {
+  background:
+    radial-gradient(ellipse at 8% 19%, rgba(218,199,177,.075) 0 3px, transparent 8px),
+    radial-gradient(ellipse at 91% 14%, rgba(218,199,177,.055) 0 2px, transparent 7px),
+    radial-gradient(ellipse at 15% 53%, rgba(194,174,154,.035) 0 9px, transparent 29px),
+    radial-gradient(ellipse at 82% 66%, rgba(194,174,154,.03) 0 10px, transparent 33px),
+    linear-gradient(112deg, transparent 0 46%, rgba(225,208,188,.018) 46.5% 47%, transparent 47.5% 100%);
+  opacity: .75;
+}
+
+body::after {
+  background:
+    radial-gradient(ellipse at center, transparent 52%, rgba(0,0,0,.12) 76%, rgba(0,0,0,.34) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.06), transparent 18%, transparent 85%, rgba(0,0,0,.16));
+}
+
+@media (min-width: 901px) {
+  :root {
+    --brick-w: 86px;
+    --brick-h: 29px;
+  }
+}
