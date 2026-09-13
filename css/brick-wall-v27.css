@@ -1,0 +1,81 @@
+/* =========================================================
+   SYSTEM CRASHER — BRICK WALL V2.7
+   ---------------------------------------------------------
+   Ziel:
+   - echter Läuferverband / Halbverband
+   - Stoßfugen um exakt 50 % versetzt
+   - keine "Fallfuge"
+   - kleine, kompakte Klinker
+   - unruhiger Mörtel und einzelne Abplatzungen
+   ========================================================= */
+
+:root {
+  --brick-w-v27: 76px;
+  --brick-h-v27: 26px;
+}
+
+/* 01 — ECHTER HALBVERBAND
+   Das SVG-Muster enthält zwei Reihen:
+   Reihe 1: Fugen bei x = 0 / 76 / 152
+   Reihe 2: um 38 px versetzt.
+   So können vertikale Fugen nicht mehr durchlaufen. */
+body {
+  background-color: #0d0d0d;
+  background-image:
+    radial-gradient(ellipse at 13% 18%, rgba(201,184,163,.035) 0 2%, transparent 10%),
+    radial-gradient(ellipse at 83% 31%, rgba(255,255,255,.017) 0 1.5%, transparent 8%),
+    radial-gradient(ellipse at 28% 72%, rgba(0,0,0,.28) 0 5%, transparent 16%),
+    radial-gradient(circle at 23% 41%, rgba(255,255,255,.020) 0 .55px, transparent .9px),
+    radial-gradient(circle at 71% 68%, rgba(0,0,0,.17) 0 .7px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='52' viewBox='0 0 152 52'%3E%3Crect width='152' height='52' fill='%23111010'/%3E%3C!-- row 1 bricks --%3E%3Crect x='1' y='1' width='74' height='24' rx='.7' fill='%23151414'/%3E%3Crect x='77' y='1' width='74' height='24' rx='.7' fill='%23121111'/%3E%3C!-- row 2 bricks, 50% offset --%3E%3Crect x='-37' y='27' width='74' height='24' rx='.7' fill='%23131212'/%3E%3Crect x='39' y='27' width='74' height='24' rx='.7' fill='%23161515'/%3E%3Crect x='115' y='27' width='74' height='24' rx='.7' fill='%23110f0f'/%3E%3C!-- horizontal mortar --%3E%3Cpath d='M0 25.2 C18 24.8 30 26 48 25.3 S81 24.8 101 25.5 S132 24.9 152 25.4' stroke='%23463f3a' stroke-opacity='.42' stroke-width='1.6' fill='none'/%3E%3Cpath d='M0 51.2 C22 50.7 36 51.8 55 51.1 S96 50.6 116 51.4 S139 50.8 152 51.2' stroke='%233c3733' stroke-opacity='.38' stroke-width='1.4' fill='none'/%3E%3C!-- vertical joints row 1 --%3E%3Cpath d='M76 0 C75.2 6 76.8 12 75.8 25' stroke='%23080606' stroke-opacity='.70' stroke-width='2'/%3E%3C!-- vertical joints row 2 --%3E%3Cpath d='M38 27 C37.2 34 38.8 41 37.8 52 M114 27 C113.3 35 114.7 42 114 52' stroke='%23080606' stroke-opacity='.70' stroke-width='2'/%3E%3C/svg%3E");
+
+  background-size:
+    430px 360px,
+    510px 440px,
+    690px 560px,
+    21px 23px,
+    29px 31px,
+    calc(var(--brick-w-v27) * 2) calc(var(--brick-h-v27) * 2);
+
+  background-position:
+    0 0,
+    83px 41px,
+    -110px 170px,
+    3px 7px,
+    11px 2px,
+    0 0;
+
+  background-repeat:
+    repeat,
+    repeat,
+    repeat,
+    repeat,
+    repeat,
+    repeat;
+}
+
+/* 02 — UNREGELMÄSSIGE MÖRTEL- UND ABPLATZUNGSZONEN
+   Nicht als Deko-Ringe, sondern als kleine matte Defekte. */
+body::before {
+  background:
+    radial-gradient(ellipse at 8% 19%, rgba(216,198,177,.07) 0 2px, transparent 8px),
+    radial-gradient(ellipse at 91% 14%, rgba(216,198,177,.045) 0 2px, transparent 7px),
+    radial-gradient(ellipse at 15% 53%, rgba(187,169,151,.03) 0 8px, transparent 29px),
+    radial-gradient(ellipse at 82% 66%, rgba(187,169,151,.027) 0 10px, transparent 33px),
+    linear-gradient(112deg, transparent 0 46%, rgba(225,208,188,.015) 46.5% 47%, transparent 47.5% 100%);
+  opacity: .72;
+}
+
+/* 03 — WAND DARF DUNKEL BLEIBEN, ABER NICHT FLACH. */
+body::after {
+  background:
+    radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,.11) 76%, rgba(0,0,0,.31) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.05), transparent 17%, transparent 85%, rgba(0,0,0,.15));
+}
+
+@media (min-width: 901px) {
+  :root {
+    --brick-w-v27: 82px;
+    --brick-h-v27: 28px;
+  }
+}
