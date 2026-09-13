@@ -1,0 +1,187 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST V2.7 MATERIAL PASS
+   ---------------------------------------------------------
+   Fokus dieser Runde:
+   - weniger "gemalt", mehr reales altes Papier
+   - stumpfere, ungleichmäßigere Pinkfläche
+   - trockenere Kanten / Abrieb / Papierfasern
+   - Risse weniger wie schwarze Linien, mehr wie beschädigte Fuge
+   - bestehende Typo- und Gelb-Hierarchie bleibt erhalten
+   ========================================================= */
+
+/* 01 — PINK NICHT ALS GLATTE FARBFELD-FLÄCHE
+   Mehr lokale Tonunterschiede, ohne neue dekorative Shapes. */
+.poster-sheet {
+  background:
+    radial-gradient(ellipse at 12% 10%, rgba(255,245,247,.07) 0 10%, transparent 29%),
+    radial-gradient(ellipse at 89% 21%, rgba(91,27,59,.055) 0 7%, transparent 21%),
+    radial-gradient(ellipse at 19% 46%, rgba(255,240,245,.035) 0 8%, transparent 24%),
+    radial-gradient(ellipse at 75% 64%, rgba(85,24,55,.045) 0 7%, transparent 22%),
+    radial-gradient(ellipse at 31% 86%, rgba(255,245,248,.035) 0 6%, transparent 20%),
+    linear-gradient(104deg, rgba(97,29,62,.035), transparent 11%, transparent 46%, rgba(255,255,255,.026) 64%, transparent 83%),
+    linear-gradient(180deg, #e84a9f 0%, #e5479c 27%, #e948a0 58%, #df4296 100%);
+}
+
+/* 02 — FEINE TROCKENE PAPIERSTRUKTUR
+   Keine sichtbaren Punkte. Viele winzige, kaum wahrnehmbare Fasern. */
+.poster-sheet::before {
+  opacity: .66;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='86' height='86' viewBox='0 0 86 86'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M5 12l5 1 M18 6l3 2 M31 14l4-1 M50 8l5 2 M68 13l3-1 M9 31l4-2 M23 28l5 1 M39 35l3-2 M58 30l4 2 M75 37l5-1 M7 54l5 2 M26 49l4-1 M45 58l5 1 M62 51l4-2 M78 61l3 1 M12 76l4-2 M34 72l5 1 M55 79l4-2 M72 74l5 1' stroke='%23fff5f7' stroke-opacity='.11' stroke-width='.7'/%3E%3Cpath d='M15 20l4 1 M36 22l3-1 M61 20l5 1 M17 43l3 1 M49 43l4-1 M70 46l3 1 M21 64l4-1 M43 67l3 1 M66 65l4-1' stroke='%23651f45' stroke-opacity='.08' stroke-width='.7'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(circle at 17% 13%, rgba(255,255,255,.055) 0 .45px, transparent .75px),
+    radial-gradient(circle at 73% 28%, rgba(75,19,49,.048) 0 .45px, transparent .75px);
+  background-size: 86px 86px, 17px 21px, 23px 27px;
+  mix-blend-mode: soft-light;
+}
+
+/* 03 — ABRIEB / MATTE RÄNDER
+   Die Ränder werden trockener und stumpfer statt sauber abgeschnitten. */
+.poster-sheet::after {
+  background:
+    linear-gradient(90deg,
+      rgba(85,27,57,.10) 0,
+      rgba(255,236,241,.045) 1.2%,
+      transparent 3.8%,
+      transparent 95.6%,
+      rgba(255,236,241,.035) 97.1%,
+      rgba(79,25,54,.11) 100%),
+    radial-gradient(ellipse at 50% 0%, rgba(255,239,244,.07) 0 7%, transparent 22%),
+    radial-gradient(ellipse at 49% 100%, rgba(80,23,54,.06) 0 7%, transparent 22%),
+    radial-gradient(ellipse at 18% 7%, rgba(255,235,244,.06) 0 8%, transparent 24%),
+    radial-gradient(ellipse at 91% 32%, rgba(80,20,52,.055) 0 4%, transparent 17%),
+    radial-gradient(ellipse at 12% 73%, rgba(80,20,52,.045) 0 5%, transparent 19%);
+  opacity: .92;
+  mix-blend-mode: multiply;
+}
+
+/* 04 — AUSSENKANTE RUHIGER UND ORGANISCHER
+   Weniger "Sägezahn", mehr ausgerissene Papierkante. */
+.poster-sheet {
+  clip-path: polygon(
+    1.0% .7%, 7% .35%, 14% .62%, 23% .34%, 31% .58%, 42% .22%, 52% .52%, 64% .18%, 76% .55%, 88% .26%, 99.0% .68%,
+    99.45% 16%, 99.05% 31%, 99.50% 48%, 99.10% 65%, 99.40% 82%, 99.0% 95.8%,
+    97.8% 97.0%, 95.1% 97.8%, 92.6% 97.2%, 89.8% 98.1%, 86.4% 97.3%, 82.9% 98.2%,
+    79.5% 97.5%, 76.1% 98.0%, 72.4% 97.4%, 68.7% 98.1%, 64.8% 97.5%, 60.5% 98.2%,
+    56.8% 97.6%, 52.4% 98.1%, 48.1% 97.5%, 43.9% 98.2%, 39.4% 97.6%, 35.0% 98.1%,
+    30.9% 97.4%, 26.1% 98.2%, 21.8% 97.5%, 17.2% 98.0%, 12.4% 97.2%, 8.1% 98.1%, 4.2% 97.4%, 1.2% 97.9%,
+    .65% 82%, .95% 66%, .45% 51%, .85% 34%, .35% 18%
+  );
+}
+
+/* 05 — ALTERUNG WENIGER "AIRBRUSH"
+   Bleichung diffuser, Flecken gebrochener. */
+.fade-top {
+  opacity: .48;
+  filter: blur(10px) saturate(.72);
+  background:
+    radial-gradient(ellipse at 69% 28%, rgba(255,245,247,.10) 0 12%, rgba(255,245,247,.04) 34%, transparent 66%),
+    radial-gradient(ellipse at 24% 38%, rgba(255,245,247,.035) 0 10%, transparent 48%);
+}
+
+.fade-mid {
+  opacity: .36;
+  filter: blur(11px) saturate(.76);
+}
+
+.stain-ring-a,
+.stain-ring-b {
+  filter: blur(.65px);
+  mix-blend-mode: multiply;
+}
+
+.stain-ring-a { opacity: .27; }
+.stain-ring-b { opacity: .19; }
+.stain-run-a { opacity: .07; }
+
+/* 06 — Risse NICHT ALS SCHWARZE ZEICHNUNG
+   Öffnung dunkler, aber mit "Papierlippe" an der Kante. */
+.poster-tear-major::before,
+.poster-tear-major::after,
+.poster-tear-minor::before {
+  background: #080808;
+  box-shadow:
+    0 -1px 0 rgba(255,233,238,.28),
+    0 1px 0 rgba(91,26,60,.22);
+}
+
+.poster-tear-major {
+  height: clamp(1.9rem, 5vw, 2.9rem);
+}
+
+.tear-major-a::before {
+  top: 43%;
+  height: 22%;
+  width: 80%;
+  clip-path: polygon(
+    0 45%, 6% 27%, 13% 49%, 21% 38%, 29% 55%, 37% 44%, 45% 58%, 54% 46%,
+    62% 57%, 70% 50%, 79% 60%, 87% 54%, 94% 60%, 100% 58%,
+    100% 68%, 93% 66%, 86% 73%, 78% 66%, 69% 76%, 60% 68%, 51% 78%, 42% 69%,
+    33% 78%, 24% 68%, 15% 76%, 7% 67%, 0 70%
+  );
+}
+
+.tear-major-b::before {
+  top: 42%;
+  height: 24%;
+  width: 72%;
+  clip-path: polygon(
+    0 55%, 8% 45%, 17% 58%, 26% 42%, 35% 61%, 44% 41%, 53% 60%, 62% 38%,
+    71% 58%, 79% 36%, 87% 56%, 94% 34%, 100% 51%,
+    100% 69%, 94% 64%, 87% 73%, 79% 66%, 71% 75%, 62% 68%, 53% 76%, 44% 67%,
+    35% 75%, 26% 66%, 17% 73%, 8% 65%, 0 69%
+  );
+}
+
+.poster-tear-minor {
+  height: clamp(.9rem, 2.5vw, 1.25rem);
+  margin-bottom: .72rem;
+}
+
+.tear-minor-a::before,
+.tear-minor-b::before {
+  height: 3px;
+  opacity: .86;
+}
+
+/* 07 — FASERN SPARSAM UND KURZ
+   Keine sichtbaren "|" mehr. */
+.poster-fiber {
+  width: .6px;
+  background: rgba(255,235,240,.36);
+}
+.poster-fiber::after { display: none; }
+
+.tear-major-a .f1 { height: 5px; opacity: .30; }
+.tear-major-a .f2 { height: 8px; opacity: .34; }
+.tear-major-a .f4 { height: 6px; opacity: .28; }
+.tear-major-b .f1 { height: 7px; opacity: .31; }
+.tear-major-b .f3 { height: 5px; opacity: .27; }
+.tear-minor-a .f1,
+.tear-minor-b .f1 { height: 4px; opacity: .24; }
+
+/* 08 — UNTERE KANTE: KEIN DREIECK-VORHANG
+   Nur lokale kleine Ausbrüche. */
+.zone-c::after {
+  left: 4%;
+  right: 4%;
+  bottom: .08rem;
+  height: .34rem;
+  opacity: .48;
+  clip-path: polygon(
+    0 76%, 8% 74%, 17% 78%, 27% 73%, 36% 79%, 48% 74%, 58% 80%,
+    69% 73%, 80% 77%, 89% 72%, 100% 76%, 100% 100%, 0 100%
+  );
+}
+
+/* 09 — GAFFA ETWAS MATTER UND SCHMUTZIGER */
+.poster-tape {
+  opacity: .82;
+  filter: saturate(.72) brightness(.82);
+}
+
+/* 10 — MOBILE LESBARKEIT BLEIBT PRIORITÄT */
+@media (max-width: 767px) {
+  .poster-sheet {
+    line-height: 1.34;
+  }
+}
