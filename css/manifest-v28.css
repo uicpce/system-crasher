@@ -182,3 +182,64 @@
   .motif-question { width: 27%; left: -3%; }
   .motif-crash { width: 36%; right: -4%; }
 }
+
+
+/* V2.8b visibility correction after mobile screenshot review
+   The first pass was technically present but visually too faint/covered. */
+@media (max-width: 767px) {
+  .poster-motif {
+    opacity: .38;
+    mix-blend-mode: multiply;
+  }
+
+  .motif-grid {
+    width: 46%;
+    min-width: 11rem;
+    right: -2.6rem;
+    top: 1.1rem;
+    transform: rotate(8deg) translateX(5%);
+  }
+
+  .motif-crowd {
+    width: 40%;
+    height: 10rem;
+    left: -2.2rem;
+    bottom: -1.2rem;
+    opacity: .40;
+    transform: rotate(-4deg) translateX(-4%);
+  }
+
+  .motif-cassette {
+    width: 42%;
+    right: -2.7rem;
+    top: 1.1rem;
+    opacity: .42;
+    transform: rotate(10deg) translateX(5%);
+  }
+
+  .motif-question {
+    width: 36%;
+    left: -1.8rem;
+    top: -1.2rem;
+    opacity: .42;
+    transform: rotate(-8deg) translateX(-4%);
+  }
+
+  .motif-crash {
+    width: 52%;
+    right: -2.6rem;
+    bottom: -.4rem;
+    opacity: .44;
+    transform: rotate(-7deg) translateX(5%);
+  }
+
+  /* Let motifs live around the copy rather than directly under every line. */
+  .shift-a { padding-left: .8rem; }
+  .shift-b { padding-left: 1rem; }
+}
+
+@media (min-width: 768px) {
+  .poster-motif {
+    mix-blend-mode: multiply;
+  }
+}
