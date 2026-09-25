@@ -243,3 +243,134 @@
     mix-blend-mode: multiply;
   }
 }
+
+
+/* =========================================================
+   V2.8c — DAMAGED PRINT PASS
+   ---------------------------------------------------------
+   Goal: motifs should feel screen-printed / photocopied onto
+   the old poster, not like clean browser geometry.
+   ========================================================= */
+
+/* Uneven old ink: slightly dirty edges and incomplete coverage. */
+.poster-motif {
+  filter: contrast(1.16) saturate(.72);
+}
+
+/* Local "missing ink" layer. It sits inside the graphic and
+   breaks clean contours into a dry, worn print. */
+.poster-motif::after {
+  content: "";
+  position: absolute;
+  inset: -4%;
+  z-index: 5;
+  pointer-events: none;
+  opacity: .68;
+  background:
+    radial-gradient(ellipse at 12% 21%, rgba(233,72,160,.88) 0 2.2%, transparent 3.1%),
+    radial-gradient(ellipse at 29% 68%, rgba(233,72,160,.72) 0 1.4%, transparent 2.4%),
+    radial-gradient(ellipse at 47% 35%, rgba(233,72,160,.82) 0 1.8%, transparent 2.8%),
+    radial-gradient(ellipse at 67% 77%, rgba(233,72,160,.76) 0 1.6%, transparent 2.7%),
+    radial-gradient(ellipse at 84% 28%, rgba(233,72,160,.90) 0 2.1%, transparent 3.1%),
+    repeating-linear-gradient(101deg,
+      transparent 0 14px,
+      rgba(233,72,160,.18) 15px 16px,
+      transparent 17px 27px);
+  mix-blend-mode: normal;
+}
+
+/* Broken grid: no identical boxes. Borders vary like a worn stencil. */
+.motif-grid span:nth-child(1) {
+  border-width: .25rem .17rem .20rem .28rem;
+  clip-path: polygon(1% 2%, 99% 0, 96% 97%, 4% 100%);
+}
+.motif-grid span:nth-child(2) {
+  border-width: .18rem .28rem .24rem .16rem;
+  clip-path: polygon(3% 0, 100% 4%, 96% 100%, 0 95%);
+}
+.motif-grid span:nth-child(3) {
+  border-width: .27rem .16rem .18rem .23rem;
+  clip-path: polygon(0 5%, 96% 0, 100% 94%, 5% 100%);
+}
+.motif-grid span:nth-child(4) {
+  border-width: .16rem .25rem .26rem .17rem;
+}
+.motif-grid span:nth-child(5) {
+  border-width: .23rem .19rem .15rem .29rem;
+}
+.motif-grid span:nth-child(6) {
+  border-width: .18rem .27rem .22rem .14rem;
+  transform: translate(-.08rem,.12rem) rotate(2deg);
+}
+
+/* Crowd silhouettes: rough shoulders and uneven "ink weight". */
+.motif-crowd .head:nth-child(odd) {
+  filter: contrast(1.35);
+  opacity: .90;
+}
+.motif-crowd .head:nth-child(even) {
+  opacity: .72;
+}
+
+/* Cassette: corners and reels no longer mechanically perfect. */
+.motif-cassette {
+  border-width: .29rem .18rem .24rem .31rem;
+  border-radius: .15rem .05rem .22rem .08rem;
+  clip-path: polygon(1% 2%, 98% 0, 100% 95%, 96% 100%, 3% 98%, 0 8%);
+}
+.motif-cassette .reel {
+  border-radius: 46% 54% 50% 48%;
+}
+.motif-cassette .r1 {
+  border-width: .27rem .17rem .25rem .20rem;
+}
+.motif-cassette .r2 {
+  border-width: .18rem .27rem .20rem .24rem;
+}
+
+/* Question block: photocopy misregistration / uneven darkness. */
+.motif-question .qmark {
+  text-shadow:
+    .06rem .02rem 0 rgba(23,20,25,.24),
+    -.04rem .06rem 0 rgba(23,20,25,.15);
+}
+.motif-question .m1 { opacity: .58; }
+.motif-question .m2 { opacity: .82; }
+.motif-question .m3 { opacity: .68; }
+
+/* Crash boxes: imperfect hand-cut stencil rectangles. */
+.motif-crash span:nth-child(1) { border-width: .28rem .16rem .22rem .31rem; }
+.motif-crash span:nth-child(2) { border-width: .17rem .29rem .25rem .19rem; }
+.motif-crash span:nth-child(3) { border-width: .26rem .18rem .16rem .27rem; }
+.motif-crash span:nth-child(4) { border-width: .18rem .26rem .29rem .15rem; }
+.motif-crash span:nth-child(5) { border-width: .25rem .20rem .17rem .30rem; }
+
+/* Tiny dry-print drift. Different per motif so the set does not
+   repeat one digital treatment. */
+.motif-grid::after {
+  transform: rotate(-2deg) scale(1.03);
+  background-position: 0 0, 7px 13px, 3px 5px, 12px 2px, 1px 17px, 0 0;
+}
+.motif-crowd::after {
+  transform: rotate(1deg) scale(.98);
+  opacity: .58;
+}
+.motif-cassette::after {
+  transform: rotate(-1deg) scale(1.04);
+  opacity: .72;
+}
+.motif-question::after {
+  transform: rotate(3deg) scale(1.06);
+  opacity: .54;
+}
+.motif-crash::after {
+  transform: rotate(-2deg) scale(1.02);
+  opacity: .66;
+}
+
+@media (max-width: 767px) {
+  /* On a phone the wear must be readable, but not turn into noise. */
+  .poster-motif::after { opacity: .60; }
+  .motif-question::after { opacity: .46; }
+  .motif-crowd::after { opacity: .50; }
+}
