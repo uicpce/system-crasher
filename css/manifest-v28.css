@@ -1,0 +1,184 @@
+/* SYSTEM CRASHER - Manifest V2.8 Old-School Graphic Map
+   Motifs are intentionally rough, monochrome and secondary to the copy. */
+
+.poster-zone,
+.poster-zone-shift {
+  position: relative;
+  isolation: isolate;
+}
+
+.poster-zone > p,
+.poster-zone-shift > p,
+.poster-highlight {
+  position: relative;
+  z-index: 3;
+}
+
+.poster-motif {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  color: rgba(23, 20, 25, .74);
+  opacity: .30;
+  transform-origin: center;
+}
+
+/* A: broken form/grid, right side */
+.motif-grid {
+  top: 2rem;
+  right: -1.1rem;
+  width: 40%;
+  min-width: 9.5rem;
+  aspect-ratio: 1.05;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: .3rem;
+  transform: rotate(7deg) translateX(7%);
+}
+.motif-grid span {
+  border: .22rem solid currentColor;
+  background: rgba(10,10,10,.025);
+  box-shadow: .12rem .12rem 0 rgba(20,15,20,.20);
+}
+.motif-grid span:nth-child(2),
+.motif-grid span:nth-child(5) { transform: translate(.2rem,-.12rem) rotate(-3deg); }
+.motif-grid span:nth-child(4) { transform: translate(-.3rem,.18rem) rotate(5deg); border-style: dashed; }
+
+/* B: people / leftovers, left side */
+.motif-crowd {
+  left: -1.8rem;
+  bottom: 1rem;
+  width: 36%;
+  height: 8.8rem;
+  transform: rotate(-5deg) translateX(-7%);
+  opacity: .35;
+}
+.motif-crowd .head {
+  position: absolute;
+  bottom: 0;
+  width: 3rem;
+  height: 5.5rem;
+  background: currentColor;
+  clip-path: polygon(35% 0, 65% 0, 77% 17%, 74% 35%, 91% 100%, 9% 100%, 26% 35%, 23% 17%);
+}
+.motif-crowd .h1 { left: 2%; height: 5rem; transform: rotate(-4deg); }
+.motif-crowd .h2 { left: 25%; height: 6.2rem; transform: rotate(3deg); }
+.motif-crowd .h3 { left: 52%; height: 5.6rem; transform: rotate(-1deg); }
+.motif-crowd .h4 { left: 75%; height: 4.8rem; transform: rotate(5deg); }
+
+/* C: cassette / DIY noise, right side */
+.motif-cassette {
+  top: 3.1rem;
+  right: -1.4rem;
+  width: 36%;
+  aspect-ratio: 1.25;
+  border: .25rem solid currentColor;
+  transform: rotate(9deg) translateX(8%);
+  opacity: .30;
+  background: repeating-linear-gradient(-11deg, transparent 0 8px, rgba(25,18,25,.12) 9px 10px);
+}
+.motif-cassette::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 10%;
+  height: 24%;
+  border-top: .18rem solid currentColor;
+  border-bottom: .18rem solid currentColor;
+  transform: skewX(-11deg);
+}
+.motif-cassette .reel {
+  position: absolute;
+  top: 29%;
+  width: 25%;
+  aspect-ratio: 1;
+  border: .24rem solid currentColor;
+  border-radius: 50%;
+}
+.motif-cassette .r1 { left: 14%; }
+.motif-cassette .r2 { right: 14%; }
+.motif-cassette .slot {
+  position: absolute;
+  left: 37%;
+  right: 37%;
+  top: 38%;
+  height: .25rem;
+  background: currentColor;
+}
+
+/* D: questions / contradiction, left side */
+.motif-question {
+  left: -1rem;
+  top: .4rem;
+  width: 32%;
+  min-height: 8rem;
+  transform: rotate(-8deg) translateX(-10%);
+  opacity: .34;
+  font-weight: 900;
+  font-family: Arial Black, Arial, sans-serif;
+}
+.motif-question .qmark {
+  position: absolute;
+  left: 3%;
+  top: 0;
+  font-size: clamp(4.8rem, 14vw, 7.5rem);
+  line-height: .85;
+}
+.motif-question .mark {
+  position: absolute;
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  line-height: 1;
+}
+.motif-question .m1 { right: 13%; top: 10%; transform: rotate(14deg); }
+.motif-question .m2 { right: 0; bottom: 3%; transform: rotate(-13deg); }
+.motif-question .m3 { left: 45%; bottom: 5%; transform: rotate(9deg); }
+
+/* E: crashing boxes, right side */
+.motif-crash {
+  right: -1.8rem;
+  bottom: -.8rem;
+  width: 44%;
+  height: 9.5rem;
+  transform: rotate(-6deg) translateX(9%);
+  opacity: .38;
+}
+.motif-crash span {
+  position: absolute;
+  width: 4rem;
+  height: 3rem;
+  border: .24rem solid currentColor;
+  background: rgba(18,14,18,.035);
+}
+.motif-crash span:nth-child(1) { right: 3%; bottom: 20%; transform: rotate(17deg); }
+.motif-crash span:nth-child(2) { right: 28%; bottom: 2%; transform: rotate(-12deg); }
+.motif-crash span:nth-child(3) { right: 50%; bottom: 24%; transform: rotate(7deg); }
+.motif-crash span:nth-child(4) { right: 18%; bottom: 54%; transform: rotate(-24deg); width: 3.2rem; }
+.motif-crash span:nth-child(5) { right: 58%; bottom: 58%; transform: rotate(31deg); width: 3.4rem; }
+
+.zone-a { transform: translateX(-.3rem); }
+.zone-b { transform: translateX(.5rem) rotate(.18deg); }
+.shift-a { margin-left: 1.1rem; margin-right: -.35rem; }
+.shift-b { margin-left: -.15rem; margin-right: 1rem; }
+.zone-c { transform: translateX(-.2rem) rotate(-.15deg); }
+
+@media (max-width: 767px) {
+  .poster-motif { opacity: .22; }
+  .motif-grid { width: 38%; right: -1.8rem; top: 2.6rem; }
+  .motif-crowd { width: 32%; left: -1.5rem; }
+  .motif-cassette { width: 33%; right: -1.7rem; top: 4rem; }
+  .motif-question { width: 29%; left: -1.3rem; }
+  .motif-crash { width: 40%; right: -2rem; }
+  .shift-a,
+  .shift-b { margin-left: .4rem; margin-right: .1rem; }
+}
+
+@media (min-width: 900px) {
+  .poster-motif { opacity: .37; }
+  .motif-grid { width: 35%; right: -4%; }
+  .motif-crowd { width: 30%; left: -4%; }
+  .motif-cassette { width: 30%; right: -4%; }
+  .motif-question { width: 27%; left: -3%; }
+  .motif-crash { width: 36%; right: -4%; }
+}
