@@ -1,0 +1,56 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST V2.15
+   PAPER TEXTURE VISIBILITY + MOBILE CENTERING
+   2026-09-26
+   ---------------------------------------------------------
+   Zweck:
+   - V2.14-Textur deutlich sichtbar machen
+   - Manifest auf Mobile wieder sauber zentrieren
+   - sonst keine Layout-/Text-/Kanten-Aenderungen
+   ========================================================= */
+
+/* Mobile-Zentrierung explizit absichern. */
+@media (max-width: 767px) {
+  .manifest-poster-stage > .manifest-collage-v211 {
+    width: min(calc(100% - 2rem), 43rem);
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .manifest-stack,
+  .manifest-sheet {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Fotografische Papierkachel jetzt absichtlich deutlich.
+   Erst sichtbar machen, dann spaeter fein zurueckregeln. */
+.manifest-sheet::after {
+  background-image: url("../images/paper/pink-paper-texture-tile.png");
+  background-repeat: repeat;
+  background-size: 300px auto;
+  opacity: .34;
+  mix-blend-mode: multiply;
+  filter: contrast(1.22) saturate(.88);
+}
+
+.manifest-sheet--01::after { background-position:   0px   0px; }
+.manifest-sheet--02::after { background-position:  71px  39px; }
+.manifest-sheet--03::after { background-position: -43px 113px; }
+.manifest-sheet--04::after { background-position: 129px -31px; }
+
+@media (max-width: 767px) {
+  .manifest-sheet::after {
+    background-size: 260px auto;
+    opacity: .38;
+    filter: contrast(1.28) saturate(.84);
+  }
+}
+
+@media (min-width: 1024px) {
+  .manifest-sheet::after {
+    background-size: 340px auto;
+    opacity: .31;
+  }
+}
