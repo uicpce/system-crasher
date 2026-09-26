@@ -1,30 +1,28 @@
-<div class="page manifest-poster-v2">
-  <article class="manifest manifest-v2 poster-sheet">
+<div class="page manifest-collage-v211">
+  <div class="manifest-stack">
 
-    <!-- Globale Material-Layer: liegen über EINEM Poster, nicht über einzelnen Panels. -->
-    <span class="poster-fade-zone fade-top" aria-hidden="true"></span>
-    <span class="poster-fade-zone fade-mid" aria-hidden="true"></span>
-    <span class="poster-stain poster-stain-ring stain-ring-a" aria-hidden="true"></span>
-    <span class="poster-stain poster-stain-ring stain-ring-b" aria-hidden="true"></span>
-    <span class="poster-stain poster-stain-run stain-run-a" aria-hidden="true"></span>
+    <!-- BLATT 01: Form / Freiheit / Zusammenleben -->
+    <article class="manifest-sheet manifest-sheet--01">
+      <span class="paper-edge paper-edge--top" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--right" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--bottom" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--left" aria-hidden="true"></span>
 
-    <!-- Oberes Gaffa: Tour-/Backstage-Befestigung. -->
-    <span class="poster-tape tape-top" aria-hidden="true"></span>
+      <div class="paper-decoration paper-decoration--grid" aria-hidden="true"></div>
 
-    <div class="audio-note" data-audio-slot hidden>
-      <button type="button" class="audio-note-button" data-audio-play>
-        <span class="audio-note-play" aria-hidden="true">▶</span>
-        <span class="audio-note-copy">
-          <strong>MANIFEST ANHÖREN</strong>
-          <small>Voice version</small>
-        </span>
+      <!-- Reservierter Slot fuer das spaetere dynamische TTS-Post-it. -->
+      <button
+        class="manifest-audio-note"
+        type="button"
+        data-manifest-audio
+        aria-label="Manifest anhören"
+        hidden>
+        <span class="manifest-audio-note__icon" aria-hidden="true">▶</span>
+        <span class="manifest-audio-note__label">ANHÖREN</span>
       </button>
-    </div>
 
-    <div class="poster-copy">
-      <section class="poster-zone zone-a">
-        <div class="poster-motif motif-grid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <p class="manifest-highlight poster-highlight highlight-a">Nicht jeder Mensch passt in dieselbe Form.</p>
+      <div class="manifest-content">
+        <p class="manifest-highlight">Nicht jeder Mensch passt in dieselbe Form.</p>
 
         <p>
           Manchmal zeigt erst der Mensch, der nicht hineinpasst,<br>
@@ -42,89 +40,85 @@
           Freiheit bedeutet nicht Gleichgültigkeit.<br>
           Zusammenleben bedeutet nicht, dass wir alle gleich sein müssen.
         </p>
-
-        <!-- Kleiner seitlicher Einriss, keine dekorative Trennlinie. -->
-        <div class="poster-tear-minor tear-minor-a" aria-hidden="true">
-          <span class="poster-fiber f1"></span>
-          <span class="poster-fiber f2"></span>
-        </div>
-
-        <div class="poster-zone-shift shift-a">
-          <div class="poster-motif motif-crowd" aria-hidden="true"><span class="head h1"></span><span class="head h2"></span><span class="head h3"></span><span class="head h4"></span></div>
-          <p>
-            Wir interessieren uns für die Menschen, die übrig bleiben,<br>
-            wenn alle Kategorien verteilt sind.
-          </p>
-
-          <p class="manifest-substatement poster-marker">
-            Für die Lauten.<br>
-            Die Leisen.<br>
-            Die Queeren.<br>
-            Die Zweifelnden.<br>
-            Diejenigen, die zu viel fragen.<br>
-            Und diejenigen, die heute überhaupt keine Antwort brauchen.
-          </p>
-        </div>
-      </section>
-
-      <!-- Hauptabriss 1: beginnt links deutlich und verliert sich nach rechts. -->
-      <div class="poster-tear-major tear-major-a" aria-hidden="true">
-        <span class="poster-fiber f1"></span>
-        <span class="poster-fiber f2"></span>
-        <span class="poster-fiber f3"></span>
-        <span class="poster-fiber f4"></span>
       </div>
+    </article>
 
-      <section class="poster-zone zone-b">
-        <div class="poster-motif motif-cassette" aria-hidden="true"><span class="reel r1"></span><span class="reel r2"></span><span class="slot"></span></div>
-        <p class="manifest-highlight poster-highlight highlight-b">Nicht jeder Song muss die Welt retten.</p>
+    <!-- BLATT 02: Die Menschen, die uebrig bleiben -->
+    <article class="manifest-sheet manifest-sheet--02">
+      <span class="paper-edge paper-edge--top" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--right" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--bottom" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--left" aria-hidden="true"></span>
 
-        <p class="manifest-life-lines">
-          <span>Manchmal reicht es, mit Freunden irgendwo herumzuhängen,</span>
-          <span>keinen Plan für morgen zu haben,</span>
-          <span>sich zu verlieben,</span>
-          <span>zu laut zu sein,</span>
-          <span>hinzufallen,</span>
-          <span>wieder aufzustehen</span>
-          <span>und gemeinsam den verdammten Raum zum Beben zu bringen.</span>
+      <div class="paper-decoration paper-decoration--people" aria-hidden="true"></div>
+
+      <div class="manifest-content">
+        <p>
+          Wir interessieren uns für die Menschen, die übrig bleiben,<br>
+          wenn alle Kategorien verteilt sind.
         </p>
 
-        <!-- Kleiner Einriss vor dem Selbstdefinitions-Block. -->
-        <div class="poster-tear-minor tear-minor-b" aria-hidden="true">
-          <span class="poster-fiber f1"></span>
-          <span class="poster-fiber f2"></span>
-        </div>
-
-        <div class="poster-zone-shift shift-b">
-          <div class="poster-motif motif-question" aria-hidden="true"><span class="qmark">?</span><span class="mark m1">/</span><span class="mark m2">\\</span><span class="mark m3">x</span></div>
-          <p>Wir haben kein fertiges Weltbild.</p>
-
-          <p class="manifest-substatement manifest-question-lines poster-marker">
-            <span>Wir haben Fragen.</span>
-            <span>Widersprüche.</span>
-            <span>Laute Gitarren.</span>
-            <span>Und ziemlich wenig Interesse daran, uns passend zu machen.</span>
-          </p>
-        </div>
-      </section>
-
-      <!-- Hauptabriss 2: andere Geometrie, stärker rechts geöffnet. -->
-      <div class="poster-tear-major tear-major-b" aria-hidden="true">
-        <span class="poster-fiber f1"></span>
-        <span class="poster-fiber f2"></span>
-        <span class="poster-fiber f3"></span>
+        <p class="manifest-list">
+          Für die Lauten.<br>
+          Die Leisen.<br>
+          Die Queeren.<br>
+          Die Zweifelnden.<br>
+          Diejenigen, die zu viel fragen.<br>
+          Und diejenigen, die heute überhaupt keine Antwort brauchen.
+        </p>
       </div>
+    </article>
 
-      <section class="poster-zone zone-c">
-        <div class="poster-motif motif-crash" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-        <p class="manifest-closing-lead">Wir sind nicht hier, um Menschen in neue Schubladen zu stecken.</p>
-        <p class="manifest-highlight poster-highlight manifest-final highlight-c">Wir sind hier, um die alten aufzusprengen.</p>
-      </section>
-    </div>
+    <!-- BLATT 03: Leben / Noise / Fragen -->
+    <article class="manifest-sheet manifest-sheet--03">
+      <span class="paper-edge paper-edge--top" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--right" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--bottom" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--left" aria-hidden="true"></span>
 
-    <!-- Unteres Gaffa sitzt an einer beschädigten Ecke. -->
-    <span class="poster-tape tape-bottom" aria-hidden="true"></span>
-  </article>
+      <div class="paper-decoration paper-decoration--cassette" aria-hidden="true"></div>
+      <div class="paper-decoration paper-decoration--question" aria-hidden="true"></div>
+
+      <div class="manifest-content">
+        <p class="manifest-highlight">Nicht jeder Song muss die Welt retten.</p>
+
+        <p class="manifest-centered">
+          Manchmal reicht es, mit Freunden irgendwo herumzuhängen,<br>
+          keinen Plan für morgen zu haben,<br>
+          sich zu verlieben,<br>
+          zu laut zu sein,<br>
+          hinzufallen,<br>
+          wieder aufzustehen<br>
+          und gemeinsam den verdammten Raum zum Beben zu bringen.
+        </p>
+
+        <p>Wir haben kein fertiges Weltbild.</p>
+
+        <p class="manifest-list">
+          Wir haben Fragen.<br>
+          Widersprüche.<br>
+          Laute Gitarren.<br>
+          Und ziemlich wenig Interesse daran, uns passend zu machen.
+        </p>
+      </div>
+    </article>
+
+    <!-- BLATT 04: Schluss / Schubladen -->
+    <article class="manifest-sheet manifest-sheet--04">
+      <span class="paper-edge paper-edge--top" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--right" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--bottom" aria-hidden="true"></span>
+      <span class="paper-edge paper-edge--left" aria-hidden="true"></span>
+
+      <div class="paper-decoration paper-decoration--broken-box" aria-hidden="true"></div>
+
+      <div class="manifest-content">
+        <p>Wir sind nicht hier, um Menschen in neue Schubladen zu stecken.</p>
+        <p class="manifest-highlight">Wir sind hier, um die alten aufzusprengen.</p>
+      </div>
+    </article>
+
+  </div>
 </div>
 
 <script src="../js/fragment-redirect.js" data-target="manifest"></script>
