@@ -1,13 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
-<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9 .55" numOctaves="3" seed="17"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .16 0"/></filter>
-<rect width="180" height="180" fill="#e5489b"/>
-<rect width="180" height="180" filter="url(#n)" opacity=".22"/>
-<g stroke="#f7c4db" stroke-opacity=".18" stroke-width=".7" fill="none">
-<path d="M7 23c16-8 26 5 42-2s25-2 37 3 29-5 41-2 25 2 43-4"/>
-<path d="M4 92c12 5 22-7 38-3s29 9 45 2 28-2 45 4 27-3 44 0"/>
-<path d="M13 148c17-5 27 7 43 1s27-1 43 3 31-8 55-1"/>
-</g>
-<g fill="#5f173e" opacity=".12">
-<circle cx="22" cy="38" r="1.2"/><circle cx="114" cy="27" r=".9"/><circle cx="159" cy="64" r="1.1"/>
-<circle cx="68" cy="113" r="1.3"/><circle cx="141" cy="143" r=".8"/><circle cx="31" cy="157" r="1"/>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" viewBox="0 0 260 260">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency=".72 .46" numOctaves="3" seed="17"/>
+    <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .11 0"/>
+  </filter>
+  <rect width="260" height="260" fill="#e5489b"/>
+  <rect width="260" height="260" filter="url(#noise)" opacity=".16"/>
+  <g fill="#5b173c" opacity=".075">
+    <circle cx="18" cy="31" r=".9"/><circle cx="59" cy="18" r=".55"/><circle cx="112" cy="43" r=".8"/>
+    <circle cx="187" cy="26" r=".6"/><circle cx="232" cy="70" r=".85"/><circle cx="41" cy="106" r=".6"/>
+    <circle cx="143" cy="94" r=".75"/><circle cx="214" cy="131" r=".55"/><circle cx="88" cy="154" r=".8"/>
+    <circle cx="176" cy="189" r=".55"/><circle cx="31" cy="216" r=".85"/><circle cx="224" cy="229" r=".7"/>
+  </g>
+  <g stroke="#f5bfd6" stroke-opacity=".07" stroke-width=".55" stroke-linecap="round">
+    <path d="M14 58l17-3m21 7l13-2m39 6l18-3m47 2l14-3m24 8l16-4"/>
+    <path d="M25 178l12-3m39 6l16-2m33 5l11-2m45 4l18-3"/>
+    <path d="M73 24l3 10m86 18l-2 13m-94 89l5 14m96 27l-2 10"/>
+  </g>
+</svg>
