@@ -1,0 +1,62 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST V2.14
+   PHOTO PAPER TEXTURE TILE TEST
+   2026-09-26
+   ---------------------------------------------------------
+   Ziel:
+   - echte fotografische Papierstruktur als gekacheltes Overlay
+   - bestehende V2.13-Geometrie, Dirt-Layer und Kanten unverändert
+   - Text / Highlights bleiben oberhalb der Textur
+   - leicht unterschiedliche Tile-Offsets je Blatt gegen Tapeteneffekt
+   ========================================================= */
+
+.manifest-sheet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  background-image: url("../images/paper/pink-paper-texture-tile.png");
+  background-repeat: repeat;
+  background-size: 420px auto;
+  background-position: 0 0;
+
+  opacity: .13;
+  mix-blend-mode: multiply;
+}
+
+/* Jedes Blatt startet an einer anderen Stelle der Kachel.
+   Dadurch wirkt die identische Quelle weniger repetitiv. */
+.manifest-sheet--01::after {
+  background-position: 0 0;
+}
+
+.manifest-sheet--02::after {
+  background-position: 83px 37px;
+}
+
+.manifest-sheet--03::after {
+  background-position: -54px 121px;
+}
+
+.manifest-sheet--04::after {
+  background-position: 137px -42px;
+}
+
+/* Mobile: etwas feiner und minimal zurückhaltender,
+   damit die Struktur den großen Text nicht stört. */
+@media (max-width: 767px) {
+  .manifest-sheet::after {
+    background-size: 360px auto;
+    opacity: .115;
+  }
+}
+
+/* Große Screens dürfen die Materialität etwas deutlicher zeigen. */
+@media (min-width: 1024px) {
+  .manifest-sheet::after {
+    background-size: 460px auto;
+    opacity: .14;
+  }
+}
