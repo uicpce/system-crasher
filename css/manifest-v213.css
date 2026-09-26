@@ -1,0 +1,195 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST V2.13
+   PAPER CLEANUP & READABILITY
+   2026-09-26
+   ========================================================= */
+
+/* Material soll gelesen werden, nicht den Text übermalen. */
+.manifest-sheet {
+  background-size:
+    260px 260px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  box-shadow:
+    0 10px 22px rgba(0,0,0,.22),
+    0 2px 5px rgba(0,0,0,.18);
+}
+
+/* Nur die echte Dirt-Textur, keine zusätzlichen CSS-Querlinien. */
+.manifest-sheet::before {
+  background: var(--paper-aging-image);
+  background-size: 320px 320px;
+  background-repeat: repeat;
+  opacity: .26;
+  mix-blend-mode: multiply;
+}
+
+/* Vier Blätter etwas weniger geometrisch und minimal enger übereinander. */
+.manifest-sheet + .manifest-sheet {
+  margin-top: -0.55rem;
+}
+
+.manifest-sheet--01 {
+  clip-path: polygon(
+    .3% 1.1%, 7% .45%, 15% .95%, 25% .25%, 37% .85%, 49% .18%,
+    61% .75%, 73% .26%, 86% .8%, 99.5% .38%,
+    99.7% 98.9%, 91% 99.4%, 80% 99.0%, 67% 99.45%, 54% 99.05%,
+    40% 99.55%, 28% 99.08%, 15% 99.48%, .45% 98.82%
+  );
+}
+
+.manifest-sheet--02 {
+  clip-path: polygon(
+    .55% .75%, 10% .35%, 20% .9%, 31% .25%, 44% .8%, 57% .3%,
+    69% .88%, 82% .25%, 91% .7%, 99.2% .48%,
+    99.5% 99.1%, 88% 99.55%, 74% 99.0%, 60% 99.45%, 47% 99.05%,
+    33% 99.55%, 20% 99.0%, 8% 99.42%, .4% 98.95%
+  );
+}
+
+.manifest-sheet--03 {
+  clip-path: polygon(
+    .35% .85%, 9% .4%, 18% .95%, 30% .3%, 43% .78%, 55% .23%,
+    68% .82%, 80% .3%, 90% .72%, 99.45% .42%,
+    99.55% 99.0%, 89% 99.5%, 76% 99.1%, 63% 99.58%, 49% 99.04%,
+    36% 99.52%, 22% 99.05%, 11% 99.5%, .45% 98.86%
+  );
+}
+
+.manifest-sheet--04 {
+  clip-path: polygon(
+    .45% .82%, 8% .32%, 19% .9%, 30% .24%, 42% .82%, 55% .2%,
+    68% .82%, 80% .28%, 91% .75%, 99.35% .42%,
+    99.3% 97.8%, 96% 99.2%, 91% 98.4%, 86% 99.5%, 80% 98.1%,
+    74% 99.45%, 68% 98.2%, 61% 99.55%, 55% 98.0%, 48% 99.5%,
+    41% 98.25%, 34% 99.55%, 27% 98.15%, 20% 99.4%, 13% 98.2%,
+    7% 99.35%, .5% 98.15%
+  );
+}
+
+/* Kanten feiner. Keine regelmäßige Sägeblatt-Silhouette. */
+.paper-edge {
+  opacity: .82;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.22));
+}
+
+.paper-edge--top {
+  top: -.88rem;
+  height: 1.7rem;
+}
+
+.paper-edge--bottom {
+  bottom: -1rem;
+  height: 2rem;
+}
+
+.paper-edge--left,
+.paper-edge--right {
+  width: 1.25rem;
+}
+
+.paper-edge--left { left: -.68rem; }
+.paper-edge--right { right: -.68rem; }
+
+.manifest-sheet--04 .paper-edge--bottom {
+  bottom: -1.55rem;
+  height: 3.15rem;
+  opacity: .9;
+}
+
+/* Old-school Motive werden zu Randfundstücken statt Hauptmotiv. */
+.paper-decoration {
+  opacity: .13;
+  filter: contrast(1.03);
+}
+
+.paper-decoration--grid {
+  top: 4.5rem;
+  right: -4.6rem;
+  width: 40%;
+  opacity: .12;
+}
+
+.paper-decoration--people {
+  left: -4.3rem;
+  bottom: 1.1rem;
+  width: 38%;
+  opacity: .16;
+}
+
+.paper-decoration--cassette {
+  right: -4.4rem;
+  top: 4.2rem;
+  width: 38%;
+  opacity: .14;
+}
+
+.paper-decoration--question {
+  left: -3.6rem;
+  bottom: 2rem;
+  width: 30%;
+  opacity: .14;
+}
+
+.paper-decoration--broken-box {
+  right: -4.4rem;
+  bottom: .35rem;
+  width: 42%;
+  opacity: .16;
+}
+
+/* Freie Zone für das spätere TTS-Post-it oben rechts. */
+.manifest-sheet--01 .manifest-content {
+  position: relative;
+}
+
+@media (min-width: 520px) {
+  .manifest-sheet--01 .manifest-content {
+    padding-right: clamp(0rem, 5vw, 2rem);
+  }
+}
+
+/* Mobile Feinschliff: Material sichtbar, Text unangetastet. */
+@media (max-width: 767px) {
+  .manifest-poster-stage {
+    padding-block: clamp(4rem, 10vw, 6rem);
+  }
+
+  .manifest-sheet::before {
+    opacity: .22;
+    background-size: 280px 280px;
+  }
+
+  .paper-edge--top {
+    top: -.72rem;
+    height: 1.35rem;
+  }
+
+  .paper-edge--bottom {
+    bottom: -.82rem;
+    height: 1.6rem;
+  }
+
+  .paper-edge--left,
+  .paper-edge--right {
+    width: 1rem;
+  }
+
+  .paper-edge--left { left: -.55rem; }
+  .paper-edge--right { right: -.55rem; }
+
+  .manifest-sheet--04 .paper-edge--bottom {
+    bottom: -1.25rem;
+    height: 2.55rem;
+  }
+
+  .paper-decoration {
+    opacity: .11;
+  }
+
+  .paper-decoration--people,
+  .paper-decoration--broken-box {
+    opacity: .14;
+  }
+}
