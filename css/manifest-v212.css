@@ -1,0 +1,158 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST V2.12
+   REAL SVG PAPER ASSETS + GRAPHIC MAP ACTIVATION
+   ========================================================= */
+
+.manifest-sheet {
+  --paper-texture-image: url("../images/paper/pink-paper-texture.svg");
+  --paper-aging-image: url("../images/paper/paper-dirt-overlay.svg");
+  --edge-left-image: url("../images/paper/edge-left.svg");
+  --edge-right-image: url("../images/paper/edge-right.svg");
+}
+
+.manifest-sheet--01 {
+  --edge-top-image: url("../images/paper/edge-top-01.svg");
+  --edge-bottom-image: url("../images/paper/edge-bottom-01.svg");
+}
+
+.manifest-sheet--02 {
+  --edge-top-image: url("../images/paper/edge-top-02.svg");
+  --edge-bottom-image: url("../images/paper/edge-bottom-02.svg");
+}
+
+.manifest-sheet--03 {
+  --edge-top-image: url("../images/paper/edge-top-01.svg");
+  --edge-bottom-image: url("../images/paper/edge-bottom-01.svg");
+}
+
+.manifest-sheet--04 {
+  --edge-top-image: url("../images/paper/edge-top-02.svg");
+  --edge-bottom-image: url("../images/paper/edge-bottom-03.svg");
+}
+
+/* Material soll sichtbar sein, aber Text nicht "schmutzig" machen. */
+.manifest-sheet {
+  background-size:
+    180px 180px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+}
+
+.manifest-sheet::before {
+  background-size:
+    240px 240px,
+    29px 31px,
+    23px 27px,
+    31px 37px,
+    83px 83px;
+  opacity: .54;
+}
+
+/* Echte Kantenassets duerfen etwas ueber die CSS-Grundform hinausleben. */
+.paper-edge--top {
+  top: -1.15rem;
+  height: 2.15rem;
+}
+
+.paper-edge--bottom {
+  bottom: -1.45rem;
+  height: 2.8rem;
+}
+
+.paper-edge--left,
+.paper-edge--right {
+  width: 1.85rem;
+}
+
+.paper-edge--left {
+  left: -1.05rem;
+}
+
+.paper-edge--right {
+  right: -1.05rem;
+}
+
+/* Untere Schlusskante ist absichtlich staerker zerstoert. */
+.manifest-sheet--04 .paper-edge--bottom {
+  bottom: -2.05rem;
+  height: 4.4rem;
+}
+
+/* Jetzt sind die Druckmotive echte Assets. */
+.paper-decoration {
+  opacity: .26;
+  filter: contrast(1.12);
+}
+
+.paper-decoration--grid {
+  opacity: .24;
+}
+
+.paper-decoration--people {
+  opacity: .30;
+}
+
+.paper-decoration--cassette {
+  opacity: .28;
+}
+
+.paper-decoration--question {
+  opacity: .27;
+}
+
+.paper-decoration--broken-box {
+  opacity: .31;
+}
+
+/* Kleine Unterschiede zwischen den Blaettern verhindern Copy/Paste-Optik. */
+.manifest-sheet--01 {
+  --sheet-pink: #e6499b;
+}
+
+.manifest-sheet--02 {
+  --sheet-pink: #e34a99;
+}
+
+.manifest-sheet--03 {
+  --sheet-pink: #e8499e;
+}
+
+.manifest-sheet--04 {
+  --sheet-pink: #df4596;
+}
+
+/* Mobile: Kanten klar lesbar, Motive sekundär. */
+@media (max-width: 767px) {
+  .paper-edge--top {
+    top: -.95rem;
+    height: 1.8rem;
+  }
+
+  .paper-edge--bottom {
+    bottom: -1.15rem;
+    height: 2.25rem;
+  }
+
+  .paper-edge--left,
+  .paper-edge--right {
+    width: 1.45rem;
+  }
+
+  .paper-edge--left { left: -.82rem; }
+  .paper-edge--right { right: -.82rem; }
+
+  .manifest-sheet--04 .paper-edge--bottom {
+    bottom: -1.75rem;
+    height: 3.65rem;
+  }
+
+  .paper-decoration {
+    opacity: .22;
+  }
+
+  .paper-decoration--people,
+  .paper-decoration--broken-box {
+    opacity: .25;
+  }
+}
