@@ -1,0 +1,119 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST V2.16
+   MATERIAL DEPTH / WEAR LAYER
+   2026-09-27
+   ---------------------------------------------------------
+   Ziel:
+   - vorhandene fotografische Papierkachel beibehalten
+   - Material mit sehr dezenten Gebrauchsspuren vertiefen
+   - keine Layout-, Typografie- oder Kantenänderungen
+   - Text und gelbe Highlights bleiben vollständig darüber
+   ========================================================= */
+
+/* Breite, sehr weiche Gebrauchsspuren.
+   Der bestehende Dirt-Layer bleibt aktiv und wird nur ergänzt. */
+.manifest-sheet::before {
+  background-image:
+    var(--paper-aging-image),
+    radial-gradient(ellipse at 12% 20%, rgba(29,18,28,.13) 0%, rgba(29,18,28,0) 31%),
+    radial-gradient(ellipse at 82% 68%, rgba(35,18,30,.10) 0%, rgba(35,18,30,0) 28%),
+    radial-gradient(ellipse at 57% 11%, rgba(255,242,246,.055) 0%, rgba(255,242,246,0) 23%),
+    radial-gradient(ellipse at 25% 79%, rgba(45,18,35,.085) 0%, rgba(45,18,35,0) 25%);
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 320px 320px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  opacity: .30;
+  mix-blend-mode: multiply;
+}
+
+/* Fotografische Kachel plus feine Fasern, Abrieb und Mikrokratzer.
+   Die Ebene liegt unter dem HTML-Inhalt, aber über dem Papiergrund. */
+.manifest-sheet::after {
+  background-image:
+    url("../images/paper/pink-paper-texture-tile.png"),
+    linear-gradient(
+      102deg,
+      rgba(35,18,30,.055) 0,
+      rgba(35,18,30,.055) 1px,
+      transparent 1px,
+      transparent 118px
+    ),
+    linear-gradient(
+      176deg,
+      rgba(32,18,28,.04) 0,
+      rgba(32,18,28,.04) 1px,
+      transparent 1px,
+      transparent 164px
+    ),
+    radial-gradient(circle at 14% 72%, rgba(38,18,31,.08) 0 1px, transparent 2px),
+    radial-gradient(circle at 66% 22%, rgba(33,18,29,.07) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 84%, rgba(42,20,34,.07) 0 1px, transparent 2px);
+  background-repeat: repeat;
+  background-size:
+    300px auto,
+    220px 220px,
+    260px 260px,
+    140px 140px,
+    180px 180px,
+    210px 210px;
+  opacity: .31;
+  mix-blend-mode: multiply;
+  filter: contrast(1.18) saturate(.90);
+}
+
+/* Unterschiedliche Startpunkte verhindern einen Copy/Paste-Rhythmus. */
+.manifest-sheet--01::after { background-position:   0px   0px,   0 0,  17px 23px,  0 0,  0 0,  0 0; }
+.manifest-sheet--02::after { background-position:  71px  39px,  29px 11px,  0 0,  13px 7px,  0 0,  0 0; }
+.manifest-sheet--03::after { background-position: -43px 113px,  11px 41px, 31px 0,  0 0,  9px 19px,  0 0; }
+.manifest-sheet--04::after { background-position: 129px -31px,  37px 17px, 21px 33px,  0 0,  0 0,  15px 8px; }
+
+/* Inhalt bleibt garantiert über sämtlichen Materialebenen. */
+.manifest-sheet .manifest-content,
+.manifest-sheet .manifest-highlight,
+.manifest-sheet .manifest-audio-note,
+.manifest-sheet .paper-decoration,
+.manifest-sheet .paper-edge {
+  position: relative;
+}
+
+.manifest-sheet .manifest-content,
+.manifest-sheet .manifest-highlight {
+  z-index: 5;
+}
+
+.manifest-sheet .manifest-audio-note {
+  z-index: 20;
+}
+
+/* Mobile: Material sichtbar, aber nicht textstörend. */
+@media (max-width: 767px) {
+  .manifest-sheet::before {
+    background-size: 280px 280px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    opacity: .27;
+  }
+
+  .manifest-sheet::after {
+    background-size:
+      260px auto,
+      205px 205px,
+      245px 245px,
+      132px 132px,
+      168px 168px,
+      198px 198px;
+    opacity: .34;
+    filter: contrast(1.22) saturate(.88);
+  }
+}
+
+/* Desktop: etwas gröbere Materialwirkung statt stärkerer Kontraste. */
+@media (min-width: 1024px) {
+  .manifest-sheet::after {
+    background-size:
+      340px auto,
+      245px 245px,
+      290px 290px,
+      160px 160px,
+      200px 200px,
+      230px 230px;
+    opacity: .29;
+  }
+}
