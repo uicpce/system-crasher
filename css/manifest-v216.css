@@ -68,20 +68,23 @@
 
 /* Inhalt bleibt garantiert über sämtlichen Materialebenen. */
 .manifest-sheet .manifest-content,
-.manifest-sheet .manifest-highlight,
-.manifest-sheet .manifest-audio-note,
-.manifest-sheet .paper-decoration,
-.manifest-sheet .paper-edge {
-  position: relative;
-}
-
-.manifest-sheet .manifest-content,
 .manifest-sheet .manifest-highlight {
+  position: relative;
   z-index: 5;
 }
 
+/* Audio-Post-it bleibt absolut positioniert und über allen Materialebenen. */
 .manifest-sheet .manifest-audio-note {
   z-index: 20;
+}
+
+/* Deko und Papierkanten behalten ihre absolute Positionierung aus V2.11. */
+.manifest-sheet .paper-decoration {
+  z-index: 2;
+}
+
+.manifest-sheet .paper-edge {
+  z-index: 8;
 }
 
 /* Mobile: Material sichtbar, aber nicht textstörend. */
