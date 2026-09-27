@@ -1,0 +1,137 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST V2.17
+   SEAM FIX + EDGE WEAR
+   2026-09-27
+   ---------------------------------------------------------
+   Ziel:
+   - schwarze Zwischenraeume zwischen Papierblaettern schliessen
+   - Kanten etwas staerker altern lassen
+   - nur wenige lokale Gebrauchsspuren, keine neue Effektwand
+   - Typografie und bestehende Papierstruktur unangetastet lassen
+   ========================================================= */
+
+/* Die Blaetter sollen sich sichtbar beruehren/ueberlappen.
+   Der negative Abstand ist absichtlich etwas groesser als zuvor. */
+.manifest-sheet + .manifest-sheet {
+  margin-top: -1.45rem;
+}
+
+/* Kleine "Papierbruecke" hinter jeder unteren Abrisskante.
+   Sie verhindert, dass bei Clip-Path/Rotation der schwarze
+   Seitenhintergrund als gerader Balken durchscheint. */
+.manifest-sheet:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.manifest-sheet:not(:last-child)::marker {
+  content: "";
+}
+
+.manifest-sheet:not(:last-child) .paper-edge--bottom {
+  z-index: 9;
+}
+
+/* Kanten etwas staerker gelesen, aber nicht als Sägeblatt. */
+.paper-edge {
+  opacity: .92;
+  filter:
+    drop-shadow(0 1px 0 rgba(0,0,0,.28))
+    drop-shadow(0 2px 2px rgba(0,0,0,.10));
+}
+
+.paper-edge--left,
+.paper-edge--right {
+  opacity: .82;
+}
+
+/* Lokale Alterung an den Aussenkanten. Die Mitte bleibt ruhig. */
+.manifest-sheet {
+  background-image:
+    linear-gradient(90deg,
+      rgba(49,18,40,.075) 0%,
+      rgba(49,18,40,.025) 2.2%,
+      transparent 6.5%,
+      transparent 93.5%,
+      rgba(49,18,40,.025) 97.8%,
+      rgba(49,18,40,.08) 100%),
+    radial-gradient(ellipse at 5% 21%, rgba(42,16,34,.075) 0 3.8%, transparent 14%),
+    radial-gradient(ellipse at 96% 46%, rgba(45,17,35,.065) 0 3.2%, transparent 13%),
+    radial-gradient(ellipse at 9% 82%, rgba(255,232,224,.045) 0 3.4%, transparent 13%),
+    radial-gradient(ellipse at 91% 91%, rgba(48,18,38,.06) 0 2.8%, transparent 12%),
+    var(--paper-texture-image),
+    radial-gradient(ellipse at 20% 13%, rgba(255,255,255,.07), transparent 28%),
+    radial-gradient(ellipse at 80% 67%, rgba(92,22,56,.055), transparent 30%),
+    linear-gradient(180deg, #e94b9e 0%, var(--sheet-pink) 52%, #df4395 100%);
+  background-repeat:
+    no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+    repeat, no-repeat, no-repeat, no-repeat;
+  background-size:
+    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+    auto, 100% 100%, 100% 100%, 100% 100%;
+}
+
+/* Wenige, bewusst platzierte Gebrauchsspuren pro Blatt.
+   Keine flächige zusätzliche Körnung. */
+.manifest-sheet--01::after {
+  background-image:
+    url("../images/paper/pink-paper-texture-tile.png"),
+    radial-gradient(ellipse at 91% 17%, rgba(48,18,38,.10) 0 5px, transparent 18px),
+    linear-gradient(103deg, transparent 0 17%, rgba(255,239,231,.10) 17.15% 17.35%, transparent 17.6% 100%);
+}
+
+.manifest-sheet--02::after {
+  background-image:
+    url("../images/paper/pink-paper-texture-tile.png"),
+    radial-gradient(ellipse at 7% 78%, rgba(46,17,37,.10) 0 6px, transparent 20px),
+    linear-gradient(82deg, transparent 0 71%, rgba(255,239,231,.08) 71.2% 71.42%, transparent 71.7% 100%);
+}
+
+.manifest-sheet--03::after {
+  background-image:
+    url("../images/paper/pink-paper-texture-tile.png"),
+    radial-gradient(ellipse at 94% 29%, rgba(49,18,39,.095) 0 5px, transparent 19px),
+    linear-gradient(177deg, transparent 0 43%, rgba(255,239,231,.08) 43.15% 43.38%, transparent 43.7% 100%);
+}
+
+.manifest-sheet--04::after {
+  background-image:
+    url("../images/paper/pink-paper-texture-tile.png"),
+    radial-gradient(ellipse at 12% 90%, rgba(50,18,40,.11) 0 6px, transparent 22px),
+    linear-gradient(96deg, transparent 0 66%, rgba(255,239,231,.075) 66.15% 66.38%, transparent 66.7% 100%);
+}
+
+/* Die Zusatzspuren bleiben deutlich schwaecher als die eigentliche Textur. */
+.manifest-sheet::after {
+  opacity: .30;
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-size: 300px auto, 100% 100%, 100% 100%;
+}
+
+/* Mobile: etwas mehr Ueberlappung, weil kleine Rotationen dort
+   schneller sichtbare schwarze Keile erzeugen. */
+@media (max-width: 767px) {
+  .manifest-sheet + .manifest-sheet {
+    margin-top: -1.75rem;
+  }
+
+  .manifest-sheet::after {
+    background-size: 260px auto, 100% 100%, 100% 100%;
+    opacity: .29;
+  }
+
+  .paper-edge--bottom {
+    bottom: -.92rem;
+  }
+}
+
+/* Desktop darf minimal luftiger bleiben. */
+@media (min-width: 1024px) {
+  .manifest-sheet + .manifest-sheet {
+    margin-top: -1.25rem;
+  }
+
+  .manifest-sheet::after {
+    background-size: 340px auto, 100% 100%, 100% 100%;
+    opacity: .27;
+  }
+}
