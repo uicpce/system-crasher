@@ -637,3 +637,69 @@ section {
     width: min(24vw, 22rem);
   }
 }
+
+/* =========================================================
+   MANIFEST V2.17 — EDGE WEAR + LOCALIZED AGING
+   ========================================================= */
+
+.manifest-poster-stage > .page {
+  background:
+    linear-gradient(rgba(255,255,255,0.02), rgba(0,0,0,0.045)),
+    radial-gradient(ellipse at 7% 18%, rgba(71,24,57,0.09) 0 10%, transparent 27%),
+    radial-gradient(ellipse at 94% 34%, rgba(65,24,52,0.08) 0 9%, transparent 24%),
+    radial-gradient(ellipse at 10% 76%, rgba(255,229,210,0.05) 0 8%, transparent 25%),
+    radial-gradient(ellipse at 91% 88%, rgba(61,18,49,0.09) 0 7%, transparent 22%),
+    url("../images/textures/pink-paper-tile.png"),
+    var(--poster-pink);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, no-repeat;
+  background-size: auto, auto, auto, auto, auto, 360px 360px, auto;
+  background-blend-mode: normal, multiply, multiply, screen, multiply, soft-light, normal;
+}
+
+.manifest-poster-stage > .page::before {
+  opacity: 0.28;
+  background:
+    radial-gradient(circle at 5% 12%, rgba(15,22,34,0.20) 0 1px, transparent 2px),
+    radial-gradient(circle at 92% 17%, rgba(15,22,34,0.18) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 8% 64%, rgba(15,22,34,0.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 96% 74%, rgba(15,22,34,0.21) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 17% 91%, rgba(15,22,34,0.15) 0 1px, transparent 2px),
+    linear-gradient(92deg, rgba(40,10,34,0.11), transparent 3.2%, transparent 96.8%, rgba(40,10,34,0.12)),
+    linear-gradient(180deg, rgba(55,16,42,0.08), transparent 4%, transparent 95%, rgba(55,16,42,0.09));
+}
+
+.manifest-poster-stage > .page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.24;
+  background:
+    linear-gradient(101deg, transparent 0 14%, rgba(255,240,230,0.15) 14.2% 14.45%, transparent 14.7% 100%),
+    linear-gradient(84deg, transparent 0 71%, rgba(63,23,50,0.16) 71.2% 71.42%, transparent 71.65% 100%),
+    linear-gradient(176deg, transparent 0 44%, rgba(255,236,226,0.12) 44.15% 44.38%, transparent 44.6% 100%),
+    radial-gradient(ellipse at 14% 23%, rgba(61,20,48,0.13) 0 0.45rem, transparent 1.2rem),
+    radial-gradient(ellipse at 87% 49%, rgba(61,20,48,0.11) 0 0.35rem, transparent 1rem),
+    radial-gradient(ellipse at 28% 83%, rgba(255,235,225,0.10) 0 0.28rem, transparent 0.9rem);
+  mix-blend-mode: multiply;
+}
+
+.manifest-poster-stage .manifest {
+  isolation: isolate;
+}
+
+.manifest-poster-stage .manifest::before,
+.manifest-poster-stage .manifest::after {
+  z-index: 5;
+}
+
+@media (max-width: 767px) {
+  .manifest-poster-stage > .page {
+    background-size: auto, auto, auto, auto, auto, 300px 300px, auto;
+  }
+
+  .manifest-poster-stage > .page::after {
+    opacity: 0.19;
+  }
+}
