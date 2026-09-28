@@ -705,3 +705,53 @@ section {
     opacity: 0.19;
   }
 }
+
+/* =========================================================
+   MANIFEST V2.21 — PAPER TILE MAX VISIBILITY TEST
+   Deliberately extreme test: the supplied PNG tile becomes
+   the dominant poster surface. No layout/typography changes.
+   ========================================================= */
+
+.manifest-poster-stage > .page {
+  background-image: url("../images/textures/pink-paper-tile.png");
+  background-color: var(--poster-pink);
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  background-position: 0 0;
+  background-blend-mode: normal;
+}
+
+/* Repeat the same photographed paper once more as a strong
+   contrast layer so fibres, mottling and tonal variation
+   cannot disappear into the flat pink base. */
+.manifest-poster-stage > .page::before {
+  opacity: 0.88;
+  background-image:
+    url("../images/textures/pink-paper-tile.png"),
+    linear-gradient(135deg,
+      rgba(255,255,255,0.18) 0%,
+      transparent 32%,
+      rgba(19,14,27,0.22) 67%,
+      transparent 100%);
+  background-repeat: repeat, no-repeat;
+  background-size: 150px 150px, 100% 100%;
+  background-position: 43px 31px, 0 0;
+  background-blend-mode: multiply, overlay;
+  mix-blend-mode: multiply;
+}
+
+/* Keep the existing crease/damage layer, but let the actual
+   photographed tile dominate this test. */
+.manifest-poster-stage > .page::after {
+  opacity: 0.16;
+}
+
+@media (max-width: 767px) {
+  .manifest-poster-stage > .page {
+    background-size: 135px 135px;
+  }
+
+  .manifest-poster-stage > .page::before {
+    background-size: 135px 135px, 100% 100%;
+  }
+}
