@@ -1,0 +1,258 @@
+/* =========================================================
+   SYSTEM CRASHER — MANIFEST V2.19
+   AGED / ATTACKED POSTER
+   2026-09-28
+   ---------------------------------------------------------
+   Ziel:
+   - altes, angegriffenes Papier statt sauberer Digitalflaeche
+   - unregelmaessiger Verschleiss statt dekorativer Wiederholung
+   - untere Saegezahn-/Zackenoptik entfernen
+   - Papierstruktur, Randabrieb, Flecken und kleine Knicke vertiefen
+   - Typografie, Textaufteilung und gelbe Highlights unangetastet lassen
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   01 — MATERIAL
+   Die echte Papierkachel bleibt Grundlage. Dazu kommen nur
+   lokale Verfaerbungen, damit die Flaeche nicht wie ein
+   gleichmaessig gefaerbter Container wirkt.
+   --------------------------------------------------------- */
+
+.manifest-sheet {
+  background-image:
+    radial-gradient(ellipse at 4% 13%, rgba(54,20,42,.11) 0 2.5%, transparent 13%),
+    radial-gradient(ellipse at 97% 28%, rgba(57,20,44,.09) 0 2.2%, transparent 12%),
+    radial-gradient(ellipse at 8% 81%, rgba(255,230,219,.055) 0 2.8%, transparent 14%),
+    radial-gradient(ellipse at 91% 91%, rgba(52,18,41,.10) 0 2.1%, transparent 12%),
+    var(--paper-texture-image),
+    radial-gradient(ellipse at 22% 14%, rgba(255,255,255,.05), transparent 29%),
+    radial-gradient(ellipse at 78% 69%, rgba(91,22,56,.05), transparent 31%),
+    linear-gradient(180deg, #e94b9e 0%, var(--sheet-pink) 52%, #df4395 100%);
+  background-repeat:
+    no-repeat, no-repeat, no-repeat, no-repeat,
+    repeat, no-repeat, no-repeat, no-repeat;
+  background-size:
+    100% 100%, 100% 100%, 100% 100%, 100% 100%,
+    auto, 100% 100%, 100% 100%, 100% 100%;
+  box-shadow:
+    0 11px 24px rgba(0,0,0,.24),
+    0 2px 5px rgba(0,0,0,.16);
+}
+
+/* Mehr Faser, Abrieb und Druckunruhe, aber weiter unter dem Text. */
+.manifest-sheet::after {
+  opacity: .43;
+  mix-blend-mode: multiply;
+  filter: contrast(1.24) saturate(.82) brightness(.995);
+}
+
+/* Wenige grosse Alterungsspuren statt vieler Linien.
+   Die schwachen linearen Zonen lesen sich als Knick/Falz. */
+.manifest-sheet::before {
+  background-image:
+    var(--paper-aging-image),
+    radial-gradient(ellipse at 10% 20%, rgba(43,18,35,.11) 0%, transparent 28%),
+    radial-gradient(ellipse at 88% 72%, rgba(47,18,37,.085) 0%, transparent 25%),
+    radial-gradient(ellipse at 64% 8%, rgba(255,241,235,.05) 0%, transparent 21%),
+    linear-gradient(94deg,
+      transparent 0 18%,
+      rgba(255,244,238,.040) 18.12%,
+      rgba(48,18,37,.030) 18.42%,
+      transparent 18.72% 100%),
+    linear-gradient(178deg,
+      transparent 0 61%,
+      rgba(47,18,37,.032) 61.12%,
+      rgba(255,241,235,.026) 61.38%,
+      transparent 61.68% 100%);
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 320px 320px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  opacity: .38;
+  mix-blend-mode: multiply;
+}
+
+/* ---------------------------------------------------------
+   02 — KANTEN
+   Weniger grafischer Rahmen, mehr abgeriebenes Papier.
+   --------------------------------------------------------- */
+
+.paper-edge {
+  opacity: .70;
+  filter:
+    contrast(.92)
+    drop-shadow(0 1px 0 rgba(0,0,0,.18))
+    drop-shadow(0 2px 2px rgba(0,0,0,.07));
+}
+
+.paper-edge--left,
+.paper-edge--right {
+  opacity: .54;
+}
+
+/* Innenkanten sollen wie ueberlappendes Papier wirken,
+   nicht wie schwarze Trennlinien. */
+.manifest-sheet:not(:last-child) .paper-edge--bottom {
+  opacity: .68;
+}
+
+/* WICHTIG V2.19:
+   Die alte Schlusskante hatte eine regelmaessige Zacken-/Saegezahnoptik.
+   Das Asset wird am letzten Blatt komplett entfernt. */
+.manifest-sheet--04 .paper-edge--bottom {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   03 — UNREGELMAESSIGE, ABER NICHT GEZACKTE BLATTFORMEN
+   Wenige grosse Abweichungen statt regelmaessigem Muster.
+   --------------------------------------------------------- */
+
+.manifest-sheet--01 {
+  clip-path: polygon(
+    .5% 1.0%, 9% .48%, 21% .92%, 34% .32%, 47% .80%, 61% .30%,
+    74% .76%, 88% .42%, 99.4% .62%,
+    99.55% 98.95%, 86% 99.28%, 72% 98.92%, 56% 99.38%,
+    41% 98.98%, 24% 99.34%, 10% 98.96%, .48% 99.14%
+  );
+}
+
+.manifest-sheet--02 {
+  clip-path: polygon(
+    .6% .82%, 12% .42%, 26% .88%, 39% .30%, 53% .78%, 68% .34%,
+    82% .84%, 99.25% .50%,
+    99.45% 99.08%, 84% 99.34%, 69% 98.94%, 52% 99.30%,
+    36% 98.90%, 19% 99.27%, .45% 98.98%
+  );
+}
+
+.manifest-sheet--03 {
+  clip-path: polygon(
+    .4% .90%, 11% .38%, 23% .86%, 37% .34%, 51% .76%, 66% .27%,
+    81% .80%, 99.45% .44%,
+    99.52% 98.96%, 88% 99.31%, 73% 98.95%, 58% 99.36%,
+    42% 98.92%, 27% 99.29%, 12% 98.97%, .46% 99.12%
+  );
+}
+
+/* Schlussblatt: bewusst breite, zufaellige Abrissbewegung.
+   Keine kurzen, regelmaessigen Dreiecke mehr. */
+.manifest-sheet--04 {
+  clip-path: polygon(
+    .48% .84%, 10% .38%, 23% .86%, 36% .30%, 50% .79%, 64% .32%,
+    79% .83%, 91% .46%, 99.35% .56%,
+    99.20% 97.95%,
+    94% 98.42%,
+    88% 99.08%,
+    80% 98.72%,
+    72% 99.25%,
+    63% 98.82%,
+    54% 99.30%,
+    45% 98.68%,
+    36% 99.18%,
+    27% 98.80%,
+    18% 99.22%,
+    10% 98.70%,
+    .55% 99.02%
+  );
+}
+
+/* ---------------------------------------------------------
+   04 — LOKALE GEBRAUCHSSPUREN
+   Blatt fuer Blatt leicht anders. Keine Textuebermalung.
+   --------------------------------------------------------- */
+
+.manifest-sheet--01::after {
+  background-position: 0 0, 0 0, 0 0;
+  filter: contrast(1.25) saturate(.81) brightness(1.006);
+}
+
+.manifest-sheet--02::after {
+  background-position: 67px 41px, 0 0, 0 0;
+  filter: contrast(1.22) saturate(.84) brightness(.994);
+}
+
+.manifest-sheet--03::after {
+  background-position: -47px 109px, 0 0, 0 0;
+  filter: contrast(1.26) saturate(.81) brightness(1.002);
+}
+
+.manifest-sheet--04::after {
+  background-position: 123px -23px, 0 0, 0 0;
+  filter: contrast(1.21) saturate(.85) brightness(.988);
+}
+
+/* Kleine asymmetrische Einrisse an einzelnen Aussenkanten
+   entstehen ueber die vorhandenen Edge-Elemente. */
+.manifest-sheet--01 .paper-edge--right {
+  transform: translateY(.35rem) scaleY(.985);
+}
+
+.manifest-sheet--02 .paper-edge--left {
+  transform: translateY(-.25rem) scaleY(.99);
+}
+
+.manifest-sheet--03 .paper-edge--right {
+  transform: translateY(.45rem) scaleY(.98);
+}
+
+.manifest-sheet--04 .paper-edge--left {
+  transform: translateY(-.35rem) scaleY(.985);
+}
+
+/* ---------------------------------------------------------
+   05 — BLATTUEBERGANG
+   Physische Ueberlappung statt schwarzer Balken.
+   --------------------------------------------------------- */
+
+.manifest-sheet + .manifest-sheet {
+  margin-top: -1.72rem;
+}
+
+/* ---------------------------------------------------------
+   06 — MOBILE
+   Hauptansicht: Material etwas deutlicher, Kanten ruhig.
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .manifest-sheet::after {
+    opacity: .45;
+    background-size: 248px auto, 100% 100%, 100% 100%;
+  }
+
+  .manifest-sheet::before {
+    opacity: .35;
+    background-size: 280px 280px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  }
+
+  .manifest-sheet + .manifest-sheet {
+    margin-top: -1.95rem;
+  }
+
+  .paper-edge {
+    opacity: .64;
+  }
+
+  .paper-edge--left,
+  .paper-edge--right {
+    opacity: .48;
+  }
+}
+
+/* ---------------------------------------------------------
+   07 — DESKTOP
+   Groessere Flaeche braucht weniger Effektstaerke.
+   --------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  .manifest-sheet::after {
+    opacity: .37;
+    background-size: 360px auto, 100% 100%, 100% 100%;
+  }
+
+  .manifest-sheet::before {
+    opacity: .33;
+  }
+
+  .manifest-sheet + .manifest-sheet {
+    margin-top: -1.48rem;
+  }
+}
