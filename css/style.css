@@ -639,7 +639,9 @@ section {
 }
 
 /* =========================================================
-   MANIFEST V2.17 — EDGE WEAR + LOCALIZED AGING
+   MANIFEST V2.20 — PAPER TEXTURE OVERDRIVE TEST
+   Only the photographic paper texture is pushed harder here.
+   Layout, typography, poster edges and offsets stay unchanged.
    ========================================================= */
 
 .manifest-poster-stage > .page {
@@ -652,8 +654,8 @@ section {
     url("../images/textures/pink-paper-tile.png"),
     var(--poster-pink);
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, no-repeat;
-  background-size: auto, auto, auto, auto, auto, 360px 360px, auto;
-  background-blend-mode: normal, multiply, multiply, screen, multiply, soft-light, normal;
+  background-size: auto, auto, auto, auto, auto, 220px 220px, auto;
+  background-blend-mode: normal, multiply, multiply, screen, multiply, multiply, normal;
 }
 
 .manifest-poster-stage > .page::before {
@@ -696,7 +698,7 @@ section {
 
 @media (max-width: 767px) {
   .manifest-poster-stage > .page {
-    background-size: auto, auto, auto, auto, auto, 300px 300px, auto;
+    background-size: auto, auto, auto, auto, auto, 200px 200px, auto;
   }
 
   .manifest-poster-stage > .page::after {
